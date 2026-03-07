@@ -1,0 +1,110 @@
+---
+import education from "../data/education.json";
+import experience from "../data/experience.json";
+import skills from "../data/skills.json";
+import "../styles/global.css";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Arvid - Resume</title>
+  </head>
+  <body class="flex justify-center min-h-screen bg-[#008080]">
+    <main
+      class="flex flex-col justify-center items-center min-h-screen container mx-auto max-w-3xl m-10 border-2 border-black border-t-[#dfdfdf] border-l-[#dfdfdf] shadow-[4px_4px_0_0_#000]"
+    >
+      <!-- Windows 95 title bar - gradient -->
+      <div
+        class="flex flex-row justify-between items-center bg-[linear-gradient(90deg,navy,#1084d0)] w-full h-6 px-1"
+      >
+        <p class="text-white text-xs font-bold truncate">C:\files\resume</p>
+        <div class="flex gap-0.5 shrink-0">
+          <!-- Minimize -->
+          <button
+            class="win95-raised w-4 h-3.5 flex items-center justify-center text-black hover:bg-[#d4d0c8]"
+          >
+            <div class="w-2 h-0.5 bg-black"></div>
+          </button>
+          <!-- Maximize -->
+          <button
+            class="win95-raised w-4 h-3.5 flex items-center justify-center text-black hover:bg-[#d4d0c8]"
+          >
+            <div class="w-2 h-2 border border-black"></div>
+          </button>
+          <!-- Close - red -->
+          <button
+            class="w-4 h-3.5 flex items-center justify-center text-white text-xs font-bold bg-[#c00000] border border-[#c00000] hover:bg-[#ff0000]"
+          >
+            ×
+          </button>
+        </div>
+      </div>
+
+      <!-- 3D recessed separator line -->
+      <div class="win95-separator w-full"></div>
+
+      <!-- Navigation buttons -->
+      <div class="flex gap-2 p-2 bg-[#c0c0c0] w-full">
+        <button class="win95-raised px-3 py-1 text-sm font-normal text-black">
+          ← back
+        </button>
+        <button class="win95-raised px-3 py-1 text-sm font-normal text-black">
+          home
+        </button>
+      </div>
+
+      <!-- Main content area - light grey like reference -->
+      <section
+        class="main-content m-2 p-4 w-[calc(100%-1rem)] bg-[#c0c0c0] win95-scroll overflow-y-auto max-h-[70vh]"
+      >
+        <h1 class="text-xl font-bold mb-4 text-[#000080]">Education</h1>
+        {
+          education.map((e) => (
+            <div class="mb-4">
+              <p class="text-black font-normal">{e.name} — {e.specification}</p>
+              <div class="win95-inset p-2 mt-1 inline-block">
+                <p class="text-sm text-black font-mono">{e.duration}</p>
+              </div>
+            </div>
+          ))
+        }
+
+        <h1 class="text-xl font-bold mt-8 mb-4 text-[#000080]">Technologies</h1>
+        <div class="space-y-6">
+          {
+            skills.map((group) => (
+              <section>
+                <h2 class="text-base font-bold mb-2 text-[#000080]">
+                  {group.category}
+                </h2>
+
+                <ul class="list-disc pl-6 space-y-1 text-black">
+                  {group.skills.map((skill) => (
+                    <li>{skill}</li>
+                  ))}
+                </ul>
+              </section>
+            ))
+          }
+        </div>
+
+        <h1 class="text-xl font-bold mt-8 mb-4 text-[#000080]">Experience</h1>
+        {
+          experience.map((ex) => (
+            <div class="mb-4">
+              <p class="text-black font-normal">{ex.name} — {ex.specification}</p>
+              <div class="win95-inset p-2 mt-1 inline-block">
+                <p class="text-sm text-black font-mono">{ex.duration}</p>
+              </div>
+            </div>
+          ))
+        }
+      </section>
+    </main>
+  </body>
+</html>

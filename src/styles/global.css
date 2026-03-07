@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+/* Windows 95 styling */
+:root {
+  --win95-bg: #c0c0c0;
+  --win95-titlebar: #000080;
+  --win95-text: #000000;
+  --win95-heading: #000080;
+  --win95-border-light: #ffffff;
+  --win95-border-dark: #808080;
+  --win95-border-darker: #000000;
+  --win95-button-face: #c0c0c0;
+  --win95-close-red: #c00000;
+}
+
+body {
+  font-family: "MS Sans Serif", "Segoe UI", Tahoma, Arial, sans-serif;
+}
+
+/* 3D recessed/inset effect (sunken boxes) */
+.win95-inset {
+  border: 2px solid;
+  border-color: var(--win95-border-dark) var(--win95-border-light) var(--win95-border-light) var(--win95-border-dark);
+  background: var(--win95-bg);
+}
+
+/* 3D raised effect (buttons) */
+.win95-raised {
+  border: 2px solid;
+  border-color: var(--win95-border-light) var(--win95-border-dark) var(--win95-border-dark) var(--win95-border-light);
+  background: var(--win95-button-face);
+}
+
+/* Title bar separator - engraved/recessed line (light top, dark bottom) */
+.win95-separator {
+  height: 2px;
+  background: linear-gradient(
+    to bottom,
+    #dfdfdf 0%,
+    #dfdfdf 50%,
+    #808080 50%,
+    #808080 100%
+  );
+  margin: 0 2px;
+}
+
+/* Classic Windows 95 scrollbar */
+.win95-scroll::-webkit-scrollbar {
+  width: 16px;
+}
+
+.win95-scroll::-webkit-scrollbar-track {
+  background: var(--win95-bg);
+  border: 1px solid var(--win95-border-dark);
+}
+
+.win95-scroll::-webkit-scrollbar-thumb {
+  background: var(--win95-button-face);
+  border: 2px solid;
+  border-color: var(--win95-border-light) var(--win95-border-dark) var(--win95-border-dark) var(--win95-border-light);
+}

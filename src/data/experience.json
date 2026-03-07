@@ -1,0 +1,37 @@
+[
+  {
+    "name": "All Perform AB",
+    "specification": "Host at exibition and events",
+    "duration": "2011-"
+  },
+  {
+    "name": "Cykelmagneten",
+    "specification": "Bicycle mechanic",
+    "duration": "2011"
+  },
+  {
+    "name": "Antistilla AB",
+    "specification": "Janitor and teacher help",
+    "duration": "2014"
+  },
+  {
+    "name": "Max",
+    "specification": "Hamburger chain",
+    "duration": "2019-2020"
+  },
+  {
+    "name": "Biltema",
+    "specification": "Bicycle mechanic",
+    "duration": "2022-2023"
+  },
+  {
+    "name": "Active Solution",
+    "specification": "Software Developer Internship",
+    "duration": "2023-2024"
+  },
+  {
+    "name": "E.BAS ltd",
+    "specification": "Software Developer",
+    "duration": "2025-2026"
+  }
+]

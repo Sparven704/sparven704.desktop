@@ -1,0 +1,63 @@
+[
+  {
+    "category": "Languages",
+    "skills": [
+      "C#",
+      "Go (Golang)",
+      "JavaScript / TypeScript",
+      "SQL",
+      "HTML / CSS"
+    ]
+  },
+  {
+    "category": "Frameworks & Libraries",
+    "skills": [
+      ".NET 6-9",
+      "ASP.NET Core",
+      "ASP.NET Core Web API",
+      "Minimal API",
+      "Blazor",
+      "React",
+      "Next.js",
+      "Astro",
+      "Tailwind CSS"
+    ]
+  },
+  {
+    "category": "Cloud & DevOps",
+    "skills": [
+      "Microsoft Azure",
+      "Azure DevOps",
+      "GitHub Actions",
+      "CI/CD pipeline design and implementation"
+    ]
+  },
+  {
+    "category": "Databases",
+    "skills": [
+      "PostgreSQL",
+      "Microsoft SQL Server",
+      "Azure Cosmos DB",
+      "Database architecture and schema design",
+      "Entity Framework Core (EF Core)"
+    ]
+  },
+  {
+    "category": "Containerization & Infrastructure",
+    "skills": ["Docker (development and local multi-service environments)"]
+  },
+  {
+    "category": "Tools & Development Practices",
+    "skills": [
+      "Visual Studio",
+      "VS Code",
+      "RESTful API design",
+      "SCRUM / Agile workflows",
+      "Algorithms and Data Structures"
+    ]
+  },
+  {
+    "category": "Working Knowledge",
+    "skills": ["Vue 3", "Express.js", "C++", "Python", "Java"]
+  }
+]
