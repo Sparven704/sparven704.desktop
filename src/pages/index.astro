@@ -1,5 +1,6 @@
 ---
 import profile from "../data/profile.json";
+import links from "../data/links.json";
 import "../styles/global.css";
 
 const lastUpdated = new Date().toISOString().split("T")[0];
@@ -22,130 +23,223 @@ const lastUpdated = new Date().toISOString().split("T")[0];
           <span class="home-desktop-icon-img">📄</span>
           ident
         </a>
-        <span class="home-desktop-icon" title="Music">
+        <a
+          href="https://open.spotify.com/user/arvidlj?si=e3023fb8b21c4783"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="home-desktop-icon"
+          title="Music"
+        >
           <span class="home-desktop-icon-img">💿</span>
           Music
-        </span>
+        </a>
         <span class="home-desktop-icon" title="Diary">
           <span class="home-desktop-icon-img">📓</span>
           Diary
         </span>
       </div>
 
-      <!-- Main window -->
-      <div
-        class="home-main-window border-2 border-black border-t-[#dfdfdf] border-l-[#dfdfdf] shadow-[4px_4px_0_0_#000] bg-[#c0c0c0]"
-      >
+      <!-- Windows container -->
+      <div class="home-windows-container">
+        <!-- Links window -->
         <div
-          class="flex flex-row justify-between items-center bg-[linear-gradient(90deg,navy,#1084d0)] w-full h-6 px-1"
+          class="home-links-window border-2 border-black border-t-[#dfdfdf] border-l-[#dfdfdf] shadow-[4px_4px_0_0_#000] bg-[#c0c0c0]"
         >
-          <p class="text-white text-xs font-bold truncate">
-            sparven704@ggez:~/
-          </p>
-          <div class="flex gap-0.5 shrink-0">
-            <button
-              class="win95-raised w-4 h-3.5 flex items-center justify-center text-black hover:bg-[#d4d0c8]"
-            >
-              <div class="w-2 h-0.5 bg-black"></div>
-            </button>
-            <button
-              class="win95-raised w-4 h-3.5 flex items-center justify-center text-black hover:bg-[#d4d0c8]"
-            >
-              <div class="w-2 h-2 border border-black"></div>
-            </button>
-            <button
-              class="w-4 h-3.5 flex items-center justify-center text-white text-xs font-bold bg-[#c00000] border border-[#c00000] hover:bg-[#ff0000]"
-            >
-              x
-            </button>
+          <div
+            class="flex flex-row justify-between items-center bg-[linear-gradient(90deg,navy,#1084d0)] w-full h-6 px-1"
+          >
+            <p class="text-white text-xs font-bold truncate">Links</p>
+            <div class="flex gap-0.5 shrink-0">
+              <button
+                class="win95-raised w-4 h-3.5 flex items-center justify-center text-black hover:bg-[#d4d0c8]"
+              >
+                <div class="w-2 h-0.5 bg-black"></div>
+              </button>
+              <button
+                class="win95-raised w-4 h-3.5 flex items-center justify-center text-black hover:bg-[#d4d0c8]"
+              >
+                <div class="w-2 h-2 border border-black"></div>
+              </button>
+              <button
+                class="w-4 h-3.5 flex items-center justify-center text-white text-xs font-bold bg-[#c00000] border border-[#c00000] hover:bg-[#ff0000]"
+              >
+                x
+              </button>
+            </div>
+          </div>
+          <div class="home-links-content">
+            <div class="home-links-category">-- philes --</div>
+            {
+              links.philes.map((link) => (
+                <a
+                  href={link.href}
+                  class="home-links-item"
+                  target={link.href.startsWith("http") ? "_blank" : undefined}
+                  rel={
+                    link.href.startsWith("http")
+                      ? "noopener noreferrer"
+                      : undefined
+                  }
+                >
+                  <span class="home-links-prefix">[-]</span>
+                  {link.label}
+                </a>
+              ))
+            }
+            <div class="home-links-category">-- socials --</div>
+            {
+              links.socials.map((link) => (
+                <a
+                  href={link.href}
+                  class="home-links-item"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span class="home-links-prefix">[-]</span>
+                  {link.label}
+                </a>
+              ))
+            }
+            <div class="home-links-category">-- other --</div>
+            {
+              links.other.map((link) => (
+                <a
+                  href={link.href}
+                  class="home-links-item"
+                  target={link.href.startsWith("http") ? "_blank" : undefined}
+                  rel={
+                    link.href.startsWith("http")
+                      ? "noopener noreferrer"
+                      : undefined
+                  }
+                >
+                  <span class="home-links-prefix">[-]</span>
+                  {link.label}
+                </a>
+              ))
+            }
           </div>
         </div>
 
-        <div class="win98-separator w-full"></div>
-
-        <!-- Tabs -->
-        <div class="home-window-tabs">
-          <button type="button" class="home-window-tab active" data-tab="about">
-            About
-          </button>
-          <button type="button" class="home-window-tab" data-tab="contact">
-            Contact
-          </button>
-          <a href="/resume" class="home-window-tab">Resume</a>
-        </div>
-
-        <!-- Content -->
-        <div class="home-window-content">
-          <section class="home-tab-content active" id="tab-about">
-            <div class="home-profile-section">
-              <h2 class="home-section-title">
-                <span>📁</span> Profile
-              </h2>
-              <p class="home-profile-text">
-                <strong>handle:</strong>
-                Sparven704
-              </p>
-              <p class="home-profile-text">
-                <strong>mostly known for:</strong>
-                {profile.title}. Full-stack development with .NET, Blazor,
-                React, and cloud technologies.
-              </p>
-              <p class="home-profile-text">{profile.summary}</p>
-              <div class="home-links">
-                <a
-                  href={profile.contact.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="home-link"
-                >
-                  github
-                </a>
-                <a
-                  href={profile.contact.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="home-link"
-                >
-                  linkedin
-                </a>
-              </div>
-              <p class="home-updated">last updated: {lastUpdated}</p>
+        <!-- Main window -->
+        <div
+          class="home-main-window border-2 border-black border-t-[#dfdfdf] border-l-[#dfdfdf] shadow-[4px_4px_0_0_#000] bg-[#c0c0c0]"
+        >
+          <div
+            class="flex flex-row justify-between items-center bg-[linear-gradient(90deg,navy,#1084d0)] w-full h-6 px-1"
+          >
+            <p class="text-white text-xs font-bold truncate">
+              sparven704@ggez:~/
+            </p>
+            <div class="flex gap-0.5 shrink-0">
+              <button
+                class="win95-raised w-4 h-3.5 flex items-center justify-center text-black hover:bg-[#d4d0c8]"
+              >
+                <div class="w-2 h-0.5 bg-black"></div>
+              </button>
+              <button
+                class="win95-raised w-4 h-3.5 flex items-center justify-center text-black hover:bg-[#d4d0c8]"
+              >
+                <div class="w-2 h-2 border border-black"></div>
+              </button>
+              <button
+                class="w-4 h-3.5 flex items-center justify-center text-white text-xs font-bold bg-[#c00000] border border-[#c00000] hover:bg-[#ff0000]"
+              >
+                x
+              </button>
             </div>
-          </section>
+          </div>
 
-          <section class="home-tab-content" id="tab-contact">
-            <div class="home-profile-section">
-              <h2 class="home-section-title">
-                <span>📁</span> Contact
-              </h2>
-              <p class="home-profile-text">
-                <strong>email:</strong>
-                {profile.contact.email}
-              </p>
-              <p class="home-profile-text">
-                <strong>location:</strong>
-                {profile.contact.location}
-              </p>
-              <div class="home-links">
-                <a
-                  href={profile.contact.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="home-link"
-                >
-                  LinkedIn
-                </a>
-                <a
-                  href={profile.contact.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="home-link"
-                >
-                  GitHub
-                </a>
+          <div class="win98-separator w-full"></div>
+
+          <!-- Tabs -->
+          <div class="home-window-tabs">
+            <button
+              type="button"
+              class="home-window-tab active"
+              data-tab="about"
+            >
+              About
+            </button>
+            <button type="button" class="home-window-tab" data-tab="contact">
+              Contact
+            </button>
+            <a href="/resume" class="home-window-tab">Resume</a>
+          </div>
+
+          <!-- Content -->
+          <div class="home-window-content">
+            <section class="home-tab-content active" id="tab-about">
+              <div class="home-profile-section">
+                <h2 class="home-section-title">
+                  <span>📁</span> Profile
+                </h2>
+                <p class="home-profile-text">
+                  <strong>handle:</strong>
+                  Sparven704
+                </p>
+                <p class="home-profile-text">
+                  <strong>mostly known for:</strong>
+                  {profile.title}. Full-stack development with .NET, Blazor,
+                  React, and cloud technologies.
+                </p>
+                <p class="home-profile-text">{profile.summary}</p>
+                <div class="home-links">
+                  <a
+                    href={profile.contact.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="home-link"
+                  >
+                    github
+                  </a>
+                  <a
+                    href={profile.contact.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="home-link"
+                  >
+                    linkedin
+                  </a>
+                </div>
+                <p class="home-updated">last updated: {lastUpdated}</p>
               </div>
-            </div>
-          </section>
+            </section>
+
+            <section class="home-tab-content" id="tab-contact">
+              <div class="home-profile-section">
+                <h2 class="home-section-title">
+                  <span>📁</span> Contact
+                </h2>
+                <p class="home-profile-text">
+                  <strong>email:</strong>
+                  {profile.contact.email}
+                </p>
+                <p class="home-profile-text">
+                  <strong>location:</strong>
+                  {profile.contact.location}
+                </p>
+                <div class="home-links">
+                  <a
+                    href={profile.contact.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="home-link"
+                  >
+                    LinkedIn
+                  </a>
+                  <a
+                    href={profile.contact.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="home-link"
+                  >
+                    GitHub
+                  </a>
+                </div>
+              </div>
+            </section>
+          </div>
         </div>
       </div>
     </div>

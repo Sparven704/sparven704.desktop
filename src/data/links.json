@@ -1,0 +1,15 @@
+{
+  "philes": [{ "label": "ident.txt", "href": "/resume" }],
+  "socials": [
+    { "label": "GitHub", "href": "https://github.com/Sparven704" },
+    {
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/arvid-ljungberg-9b7b13253"
+    }
+  ],
+  "other": [
+    { "label": "Diary.", "href": "#" },
+    { "label": "RSS", "href": "#" },
+    { "label": "ident.txt", "href": "/resume" }
+  ]
+}
