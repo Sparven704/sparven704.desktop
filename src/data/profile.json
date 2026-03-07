@@ -1,0 +1,21 @@
+{
+  "name": "Arvid Ljungberg",
+  "title": "Fullstack Developer",
+  "summary": "Fluent in sve/eng. Full-stack developer experienced in building and deploying web, backend, and mobile applications. Strong background in system architecture, database design, and cloud deployment with hands-on experience across the full development lifecycle.",
+  "coreExperience": [
+    "Backend development with ASP.NET and Golang",
+    "Frontend development with Blazor, Next.js and React",
+    "Mobile development using .NET MAUI",
+    "Database architecture and schema design for both relational and non-relational databases",
+    "Cloud development and infrastructure in Microsoft Azure",
+    "CI/CD pipeline design and implementation using Azure Pipelines and GitHub Actions",
+    "Docker containerization and local multi-service testing environments",
+    "System architecture design and technical setup for production software projects"
+  ],
+  "contact": {
+    "email": "arvid.ljungberg@gmail.com",
+    "location": "Larnaca, Cyprus",
+    "linkedin": "https://www.linkedin.com/in/arvid-ljungberg-9b7b13253",
+    "github": "https://github.com/Sparven704"
+  }
+}

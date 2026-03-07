@@ -1,8 +1,8 @@
 ---
-import education from "../data/education.json";
-import experience from "../data/experience.json";
-import skills from "../data/skills.json";
+import profile from "../data/profile.json";
 import "../styles/global.css";
+
+const lastUpdated = new Date().toISOString().split("T")[0];
 ---
 
 <html lang="en">
@@ -12,99 +12,257 @@ import "../styles/global.css";
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Arvid - Resume</title>
+    <title>sparven704.desktop</title>
   </head>
-  <body class="flex justify-center min-h-screen bg-[#008080]">
-    <main
-      class="flex flex-col justify-center items-center min-h-screen container mx-auto max-w-3xl m-10 border-2 border-black border-t-[#dfdfdf] border-l-[#dfdfdf] shadow-[4px_4px_0_0_#000]"
-    >
-      <!-- Windows 95 title bar - gradient -->
+  <body class="home-desktop pb-[30px]">
+    <div class="home-desktop-content">
+      <!-- Desktop icons -->
+      <div class="home-desktop-icons">
+        <a href="/resume" class="home-desktop-icon" title="Resume">
+          <span class="home-desktop-icon-img">📄</span>
+          ident
+        </a>
+        <span class="home-desktop-icon" title="Music">
+          <span class="home-desktop-icon-img">💿</span>
+          Music
+        </span>
+        <span class="home-desktop-icon" title="Diary">
+          <span class="home-desktop-icon-img">📓</span>
+          Diary
+        </span>
+      </div>
+
+      <!-- Main window -->
       <div
-        class="flex flex-row justify-between items-center bg-[linear-gradient(90deg,navy,#1084d0)] w-full h-6 px-1"
+        class="home-main-window border-2 border-black border-t-[#dfdfdf] border-l-[#dfdfdf] shadow-[4px_4px_0_0_#000] bg-[#c0c0c0]"
       >
-        <p class="text-white text-xs font-bold truncate">C:\files\resume</p>
-        <div class="flex gap-0.5 shrink-0">
-          <!-- Minimize -->
-          <button
-            class="win95-raised w-4 h-3.5 flex items-center justify-center text-black hover:bg-[#d4d0c8]"
-          >
-            <div class="w-2 h-0.5 bg-black"></div>
-          </button>
-          <!-- Maximize -->
-          <button
-            class="win95-raised w-4 h-3.5 flex items-center justify-center text-black hover:bg-[#d4d0c8]"
-          >
-            <div class="w-2 h-2 border border-black"></div>
-          </button>
-          <!-- Close - red -->
-          <button
-            class="w-4 h-3.5 flex items-center justify-center text-white text-xs font-bold bg-[#c00000] border border-[#c00000] hover:bg-[#ff0000]"
-          >
-            ×
-          </button>
-        </div>
-      </div>
-
-      <!-- 3D recessed separator line -->
-      <div class="win95-separator w-full"></div>
-
-      <!-- Navigation buttons -->
-      <div class="flex gap-2 p-2 bg-[#c0c0c0] w-full">
-        <button class="win95-raised px-3 py-1 text-sm font-normal text-black">
-          ← back
-        </button>
-        <button class="win95-raised px-3 py-1 text-sm font-normal text-black">
-          home
-        </button>
-      </div>
-
-      <!-- Main content area - light grey like reference -->
-      <section
-        class="main-content m-2 p-4 w-[calc(100%-1rem)] bg-[#c0c0c0] win95-scroll overflow-y-auto max-h-[70vh]"
-      >
-        <h1 class="text-xl font-bold mb-4 text-[#000080]">Education</h1>
-        {
-          education.map((e) => (
-            <div class="mb-4">
-              <p class="text-black font-normal">{e.name} — {e.specification}</p>
-              <div class="win95-inset p-2 mt-1 inline-block">
-                <p class="text-sm text-black font-mono">{e.duration}</p>
-              </div>
-            </div>
-          ))
-        }
-
-        <h1 class="text-xl font-bold mt-8 mb-4 text-[#000080]">Technologies</h1>
-        <div class="space-y-6">
-          {
-            skills.map((group) => (
-              <section>
-                <h2 class="text-base font-bold mb-2 text-[#000080]">
-                  {group.category}
-                </h2>
-
-                <ul class="list-disc pl-6 space-y-1 text-black">
-                  {group.skills.map((skill) => (
-                    <li>{skill}</li>
-                  ))}
-                </ul>
-              </section>
-            ))
-          }
+        <div
+          class="flex flex-row justify-between items-center bg-[linear-gradient(90deg,navy,#1084d0)] w-full h-6 px-1"
+        >
+          <p class="text-white text-xs font-bold truncate">
+            sparven704@ggez:~/
+          </p>
+          <div class="flex gap-0.5 shrink-0">
+            <button
+              class="win95-raised w-4 h-3.5 flex items-center justify-center text-black hover:bg-[#d4d0c8]"
+            >
+              <div class="w-2 h-0.5 bg-black"></div>
+            </button>
+            <button
+              class="win95-raised w-4 h-3.5 flex items-center justify-center text-black hover:bg-[#d4d0c8]"
+            >
+              <div class="w-2 h-2 border border-black"></div>
+            </button>
+            <button
+              class="w-4 h-3.5 flex items-center justify-center text-white text-xs font-bold bg-[#c00000] border border-[#c00000] hover:bg-[#ff0000]"
+            >
+              x
+            </button>
+          </div>
         </div>
 
-        <h1 class="text-xl font-bold mt-8 mb-4 text-[#000080]">Experience</h1>
-        {
-          experience.map((ex) => (
-            <div class="mb-4">
-              <p class="text-black font-normal">{ex.name} — {ex.specification}</p>
-              <div class="win95-inset p-2 mt-1 inline-block">
-                <p class="text-sm text-black font-mono">{ex.duration}</p>
+        <div class="win98-separator w-full"></div>
+
+        <!-- Tabs -->
+        <div class="home-window-tabs">
+          <button type="button" class="home-window-tab active" data-tab="about">
+            About
+          </button>
+          <button type="button" class="home-window-tab" data-tab="contact">
+            Contact
+          </button>
+          <a href="/resume" class="home-window-tab">Resume</a>
+        </div>
+
+        <!-- Content -->
+        <div class="home-window-content">
+          <section class="home-tab-content active" id="tab-about">
+            <div class="home-profile-section">
+              <h2 class="home-section-title">
+                <span>📁</span> Profile
+              </h2>
+              <p class="home-profile-text">
+                <strong>handle:</strong>
+                Sparven704
+              </p>
+              <p class="home-profile-text">
+                <strong>mostly known for:</strong>
+                {profile.title}. Full-stack development with .NET, Blazor,
+                React, and cloud technologies.
+              </p>
+              <p class="home-profile-text">{profile.summary}</p>
+              <div class="home-links">
+                <a
+                  href={profile.contact.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="home-link"
+                >
+                  github
+                </a>
+                <a
+                  href={profile.contact.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="home-link"
+                >
+                  linkedin
+                </a>
+              </div>
+              <p class="home-updated">last updated: {lastUpdated}</p>
+            </div>
+          </section>
+
+          <section class="home-tab-content" id="tab-contact">
+            <div class="home-profile-section">
+              <h2 class="home-section-title">
+                <span>📁</span> Contact
+              </h2>
+              <p class="home-profile-text">
+                <strong>email:</strong>
+                {profile.contact.email}
+              </p>
+              <p class="home-profile-text">
+                <strong>location:</strong>
+                {profile.contact.location}
+              </p>
+              <div class="home-links">
+                <a
+                  href={profile.contact.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="home-link"
+                >
+                  LinkedIn
+                </a>
+                <a
+                  href={profile.contact.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="home-link"
+                >
+                  GitHub
+                </a>
               </div>
             </div>
-          ))
-        }
-      </section>
-    </main>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <!-- Windows 98 taskbar -->
+    <footer class="win98-taskbar">
+      <button
+        type="button"
+        id="start-btn"
+        class="win98-raised win98-start-btn text-black overflow-visible ml-1"
+        aria-expanded="false"
+        aria-haspopup="true"
+      >
+        <img
+          src="/windows-98-logo.png"
+          alt="Windows 98"
+          class="w-6 h-6 shrink-0 object-contain -ml-0.5"
+        />
+        Start
+      </button>
+    </footer>
+
+    <!-- Windows 98 start menu -->
+    <div
+      id="start-menu"
+      class="win98-start-menu"
+      role="menu"
+      aria-label="Start menu"
+    >
+      <div class="win98-start-menu-sidebar">
+        <span class="win98-start-menu-branding">Windows98</span>
+      </div>
+      <div class="win98-start-menu-content">
+        <a href="/" class="win98-start-menu-item" role="menuitem">
+          <span class="win98-start-menu-item-icon">🏠</span>
+          <span class="win98-start-menu-item-text">Home</span>
+        </a>
+        <a href="/resume" class="win98-start-menu-item" role="menuitem">
+          <span class="win98-start-menu-item-icon">📁</span>
+          <span class="win98-start-menu-item-text">Resume</span>
+        </a>
+        <div class="win98-start-menu-divider"></div>
+        <button type="button" class="win98-start-menu-item" role="menuitem">
+          <span class="win98-start-menu-item-icon">📁</span>
+          <span class="win98-start-menu-item-text">Programs</span>
+          <span class="win98-start-menu-item-arrow">›</span>
+        </button>
+        <button type="button" class="win98-start-menu-item" role="menuitem">
+          <span class="win98-start-menu-item-icon">★</span>
+          <span class="win98-start-menu-item-text">Favorites</span>
+          <span class="win98-start-menu-item-arrow">›</span>
+        </button>
+        <button type="button" class="win98-start-menu-item" role="menuitem">
+          <span class="win98-start-menu-item-icon">📁</span>
+          <span class="win98-start-menu-item-text">Documents</span>
+          <span class="win98-start-menu-item-arrow">›</span>
+        </button>
+        <div class="win98-start-menu-divider"></div>
+        <button type="button" class="win98-start-menu-item" role="menuitem">
+          <span class="win98-start-menu-item-icon">⏻</span>
+          <span class="win98-start-menu-item-text">Shut Down...</span>
+        </button>
+      </div>
+    </div>
+
+    <script>
+      const startBtn = document.getElementById("start-btn")!;
+      const startMenu = document.getElementById("start-menu")!;
+
+      function toggleStartMenu() {
+        const isOpen = startMenu.classList.toggle("open");
+        startBtn.classList.toggle("pressed", isOpen);
+        startBtn.setAttribute("aria-expanded", String(isOpen));
+      }
+
+      function closeStartMenu() {
+        startMenu.classList.remove("open");
+        startBtn.classList.remove("pressed");
+        startBtn.setAttribute("aria-expanded", "false");
+      }
+
+      startBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toggleStartMenu();
+      });
+
+      document.addEventListener("click", () => closeStartMenu());
+      startMenu.addEventListener("click", (e) => e.stopPropagation());
+
+      function showTab(tabId: string) {
+        document
+          .querySelectorAll(".home-tab-content")
+          .forEach((el) => el.classList.remove("active"));
+        document
+          .querySelectorAll(".home-window-tab[data-tab]")
+          .forEach((el) => el.classList.remove("active"));
+        const content = document.getElementById(`tab-${tabId}`);
+        const tab = document.querySelector(
+          `.home-window-tab[data-tab="${tabId}"]`,
+        );
+        if (content) content.classList.add("active");
+        if (tab) tab.classList.add("active");
+        history.replaceState(null, "", tabId === "contact" ? "/#contact" : "/");
+      }
+
+      document.querySelectorAll(".home-window-tab[data-tab]").forEach((tab) => {
+        tab.addEventListener("click", () => {
+          const tabId = tab.getAttribute("data-tab");
+          if (tabId) showTab(tabId);
+        });
+      });
+
+      if (window.location.hash === "#contact") {
+        showTab("contact");
+      } else {
+        showTab("about");
+      }
+    </script>
   </body>
 </html>

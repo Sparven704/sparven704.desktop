@@ -1,13 +1,44 @@
 [
   {
-    "name": "All Perform AB",
-    "specification": "Host at exibition and events",
-    "duration": "2011-"
+    "name": "E.BAS ltd",
+    "specification": "Software Developer",
+    "duration": "2025–2026",
+    "highlights": [
+      "Developed and maintained fullstack applications using .NET, Blazor and SQL Server",
+      "Built solutions with Go, Next.js, and PostgreSQL",
+      "Deployed and managed applications on Azure",
+      "Solo developer — full ownership of development lifecycle"
+    ],
+    "technologies": [
+      ".NET",
+      "Blazor",
+      "SQL Server",
+      "Go",
+      "Next.js",
+      "PostgreSQL",
+      "Azure"
+    ]
   },
   {
-    "name": "Cykelmagneten",
+    "name": "Active Solution",
+    "specification": "Software Developer Internship",
+    "duration": "2023–2024",
+    "highlights": [
+      "Worked agile with a small team on an in-house project",
+      "Developed an AI-driven charade game for conferences",
+      "Fullstack development with .NET and React"
+    ],
+    "technologies": [".NET", "React", "Cosmos DB", "Azure"]
+  },
+  {
+    "name": "Biltema",
     "specification": "Bicycle mechanic",
-    "duration": "2011"
+    "duration": "2022–2023"
+  },
+  {
+    "name": "Max",
+    "specification": "Hamburger chain",
+    "duration": "2019–2020"
   },
   {
     "name": "Antistilla AB",
@@ -15,23 +46,13 @@
     "duration": "2014"
   },
   {
-    "name": "Max",
-    "specification": "Hamburger chain",
-    "duration": "2019-2020"
-  },
-  {
-    "name": "Biltema",
+    "name": "Cykelmagneten",
     "specification": "Bicycle mechanic",
-    "duration": "2022-2023"
+    "duration": "2011"
   },
   {
-    "name": "Active Solution",
-    "specification": "Software Developer Internship",
-    "duration": "2023-2024"
-  },
-  {
-    "name": "E.BAS ltd",
-    "specification": "Software Developer",
-    "duration": "2025-2026"
+    "name": "All Perform AB",
+    "specification": "Host at exhibition and events",
+    "duration": "2011–"
   }
 ]

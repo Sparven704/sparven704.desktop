@@ -1,22 +1,22 @@
 [
   {
-    "name": "Mediagymnasiet",
-    "specification": "Techical Program, information- and media",
-    "duration": "2013-2016"
-  },
-  {
-    "name": "Stockholm University",
-    "specification": "Japanese 1",
-    "duration": "2017-2018"
+    "name": "Chas Academy",
+    "specification": "Fullstack .NET Developer — Vocational Education",
+    "duration": "2022–2024"
   },
   {
     "name": "Luleå Technical University",
     "specification": "Systemvetenskap (Systems Science)",
-    "duration": "2018-2020"
+    "duration": "2018–2020"
   },
   {
-    "name": "Chas Academy - Vocational Education",
-    "specification": "Fullstack .NET developer",
-    "duration": "2022-2024"
+    "name": "Stockholm University",
+    "specification": "Japanese 1",
+    "duration": "2017–2018"
+  },
+  {
+    "name": "Mediagymnasiet",
+    "specification": "Technical Program, Information & Media",
+    "duration": "2013–2016"
   }
 ]
