@@ -1,5 +1,5 @@
 {
-  "philes": [{ "label": "ident.txt", "href": "/resume" }],
+  "files": [{ "label": "resume.txt", "href": "/resume" }],
   "socials": [
     { "label": "GitHub", "href": "https://github.com/Sparven704" },
     {
@@ -10,6 +10,6 @@
   "other": [
     { "label": "Diary.", "href": "#" },
     { "label": "RSS", "href": "#" },
-    { "label": "ident.txt", "href": "/resume" }
+    { "label": "resume.txt", "href": "/resume" }
   ]
 }
