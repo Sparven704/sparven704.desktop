@@ -17,6 +17,10 @@ body {
   font-family: "MS Sans Serif", "Segoe UI", Tahoma, Arial, sans-serif;
 }
 
+body.logoff-invert {
+  filter: invert(1);
+}
+
 body.win98-desktop {
   background: var(--win98-desktop);
 }
@@ -367,6 +371,7 @@ body.win98-desktop {
   border: none;
   cursor: pointer;
   color: #000080;
+  text-decoration: none;
 }
 
 .win98-start-menu-item:hover {
@@ -579,53 +584,19 @@ body.win98-desktop {
 /* Home page - desktop layout */
 .home-desktop {
   min-height: 100vh;
-  background: linear-gradient(180deg, #1a0a2e 0%, #0d0218 50%, #05010a 100%);
-  background-size: 100% 100%;
   position: relative;
   overflow-x: hidden;
 }
 
-.home-desktop::before {
-  content: "";
+.home-desktop-bg-video {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background-image:
-    radial-gradient(
-      2px 2px at 20px 30px,
-      rgba(255, 255, 255, 0.4),
-      transparent
-    ),
-    radial-gradient(
-      2px 2px at 40px 70px,
-      rgba(255, 255, 255, 0.3),
-      transparent
-    ),
-    radial-gradient(
-      2px 2px at 50px 160px,
-      rgba(255, 255, 255, 0.35),
-      transparent
-    ),
-    radial-gradient(
-      2px 2px at 90px 40px,
-      rgba(255, 255, 255, 0.25),
-      transparent
-    ),
-    radial-gradient(
-      2px 2px at 130px 80px,
-      rgba(255, 255, 255, 0.3),
-      transparent
-    ),
-    radial-gradient(
-      2px 2px at 160px 120px,
-      rgba(200, 180, 255, 0.2),
-      transparent
-    );
-  background-size: 200px 200px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
   pointer-events: none;
-  z-index: 0;
 }
 
 .home-desktop-content {

@@ -20,6 +20,16 @@ const lastUpdated = new Date().toISOString().split("T")[0];
     <title>sparven704.desktop</title>
   </head>
   <body class="home-desktop pb-7.5">
+    <video
+      class="home-desktop-bg-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      aria-hidden="true"
+    >
+      <source src="/blue_neon_retro.mp4" type="video/mp4" />
+    </video>
     <div class="home-desktop-content">
       <!-- Desktop icons -->
       <div class="home-desktop-icons">
@@ -49,7 +59,13 @@ const lastUpdated = new Date().toISOString().split("T")[0];
           >
           Music
         </a>
-        <span class="home-desktop-icon" title="Terminal">
+        <a
+          href={profile.contact.github}
+          class="home-desktop-icon"
+          title="Terminal"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <span class="home-desktop-icon-img"
             ><img
               src="/console_prompt-0.png"
@@ -58,20 +74,7 @@ const lastUpdated = new Date().toISOString().split("T")[0];
             /></span
           >
           Terminal
-        </span>
-        <a
-          href={profile.contact.github}
-          class="home-desktop-icon"
-          title="GitHub"
-          target="_blank"
-        >
-          <span class="home-desktop-icon" title="GitHub">
-            <span class="home-desktop-icon-img"
-              ><img src="/github.png" alt="Terminal" class="w-12 h-12" />
-            </span>
-            GitHub
-          </span></a
-        >
+        </a>
         <button
           type="button"
           class="home-desktop-icon minesweeper-icon-btn"
@@ -445,12 +448,18 @@ const lastUpdated = new Date().toISOString().split("T")[0];
           >
           <span class="win98-start-menu-item-text">Resume</span>
         </a>
-        <button type="button" class="win98-start-menu-item" role="menuitem">
+        <a
+          href={profile.contact.github}
+          class="win98-start-menu-item"
+          role="menuitem"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <span class="win98-start-menu-item-icon"
             ><img src="/console_prompt-0.png" alt="" class="w-5 h-5" /></span
           >
           <span class="win98-start-menu-item-text">Terminal</span>
-        </button>
+        </a>
         <button type="button" class="win98-start-menu-item" role="menuitem">
           <span class="win98-start-menu-item-icon"
             ><img src="/directory_favorites.png" alt="" class="w-5 h-5" /></span
@@ -478,7 +487,12 @@ const lastUpdated = new Date().toISOString().split("T")[0];
           <span class="win98-start-menu-item-text">Settings</span>
         </button>
         <div class="win98-start-menu-divider"></div>
-        <button type="button" class="win98-start-menu-item" role="menuitem">
+        <button
+          type="button"
+          class="win98-start-menu-item"
+          id="logoff-btn"
+          role="menuitem"
+        >
           <span class="win98-start-menu-item-icon"
             ><img src="/key_win.png" alt="" class="w-5 h-5" /></span
           >
@@ -516,6 +530,12 @@ const lastUpdated = new Date().toISOString().split("T")[0];
 
       document.addEventListener("click", () => closeStartMenu());
       startMenu.addEventListener("click", (e) => e.stopPropagation());
+
+      document.getElementById("logoff-btn")!.addEventListener("click", () => {
+        closeStartMenu();
+        document.body.classList.add("logoff-invert");
+        setTimeout(() => document.body.classList.remove("logoff-invert"), 3000);
+      });
 
       function showTab(tabId: string) {
         document

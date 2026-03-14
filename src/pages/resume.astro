@@ -16,6 +16,16 @@ import "../styles/global.css";
     <title>Arvid - Resume</title>
   </head>
   <body class="home-desktop flex flex-col items-center min-h-screen pb-7.5">
+    <video
+      class="home-desktop-bg-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      aria-hidden="true"
+    >
+      <source src="/blue_neon_retro.mp4" type="video/mp4" />
+    </video>
     <main
       class="flex flex-col justify-start items-center container bg-[#c0c0c0] max-w-3xl mt-10 mx-10 mb-10 border-2 border-black border-t-[#dfdfdf] border-l-[#dfdfdf] shadow-[4px_4px_0_0_#000]"
     >
@@ -234,12 +244,18 @@ import "../styles/global.css";
           >
           <span class="win98-start-menu-item-text">Resume</span>
         </a>
-        <button type="button" class="win98-start-menu-item" role="menuitem">
+        <a
+          href={profile.contact.github}
+          class="win98-start-menu-item"
+          role="menuitem"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <span class="win98-start-menu-item-icon"
             ><img src="/console_prompt-0.png" alt="" class="w-5 h-5" /></span
           >
           <span class="win98-start-menu-item-text">Terminal</span>
-        </button>
+        </a>
         <button type="button" class="win98-start-menu-item" role="menuitem">
           <span class="win98-start-menu-item-icon"
             ><img src="/directory_favorites.png" alt="" class="w-5 h-5" /></span
@@ -267,7 +283,7 @@ import "../styles/global.css";
           <span class="win98-start-menu-item-text">Settings</span>
         </button>
         <div class="win98-start-menu-divider"></div>
-        <button type="button" class="win98-start-menu-item" role="menuitem">
+        <button type="button" class="win98-start-menu-item" id="logoff-btn" role="menuitem">
           <span class="win98-start-menu-item-icon"
             ><img src="/key_win.png" alt="" class="w-5 h-5" /></span
           >
@@ -304,8 +320,13 @@ import "../styles/global.css";
       });
 
       document.addEventListener("click", () => closeStartMenu());
-
       startMenu.addEventListener("click", (e) => e.stopPropagation());
+
+      document.getElementById("logoff-btn")!.addEventListener("click", () => {
+        closeStartMenu();
+        document.body.classList.add("logoff-invert");
+        setTimeout(() => document.body.classList.remove("logoff-invert"), 3000);
+      });
     </script>
   </body>
 </html>
