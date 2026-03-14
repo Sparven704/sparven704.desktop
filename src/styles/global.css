@@ -21,12 +21,12 @@ body.win98-desktop {
   background: var(--win98-desktop);
 }
 
-/* 3D effect - light top/left, dark bottom/right */
+/* 3D sunken effect */
 .win95-inset,
 .win98-inset {
   border: 2px solid;
-  border-color: var(--win98-border-light) var(--win98-border-dark)
-    var(--win98-border-dark) var(--win98-border-light);
+  border-color: var(--win98-border-dark) var(--win98-border-light)
+    var(--win98-border-light) var(--win98-border-dark);
   background: var(--win98-bg);
 }
 
@@ -39,7 +39,7 @@ body.win98-desktop {
   background: var(--win98-button-face);
 }
 
-/* Title bar separator - engraved/recessed line (light top, dark bottom) */
+/* Title bar separator */
 .win95-separator,
 .win98-separator {
   height: 2px;
@@ -53,7 +53,7 @@ body.win98-desktop {
   margin: 0 2px;
 }
 
-/* Classic Windows 95 scrollbar */
+/* Windows 95 scrollbar */
 .win95-scroll::-webkit-scrollbar {
   width: 16px;
 }
@@ -70,7 +70,7 @@ body.win98-desktop {
     var(--win98-border-dark) var(--win98-border-light);
 }
 
-/* Windows 98 taskbar - teal desktop, subtle gradient */
+/* Windows 98 taskbar */
 .win98-taskbar {
   position: fixed;
   bottom: 0;
@@ -104,7 +104,7 @@ body.win98-desktop {
   padding: 1px 9px 0 5px;
 }
 
-/* Windows 98 start menu - vertical blue bar layout */
+/* Windows 98 start menu */
 .win98-start-menu {
   position: fixed;
   bottom: 36px;
@@ -125,7 +125,7 @@ body.win98-desktop {
   display: flex;
 }
 
-/* Vertical blue bar with Windows98 text - matches title bar gradient */
+/* Vertical blue bar */
 .win98-start-menu-sidebar {
   width: 28px;
   background: linear-gradient(to bottom, navy, #1084d0);
@@ -197,7 +197,7 @@ body.win98-desktop {
   background: var(--win98-border-dark);
 }
 
-/* CV content - professional layout within Windows 98 theme */
+/* CV content */
 .cv-profile-header {
   border-bottom: 2px solid var(--win98-border-dark);
   padding-bottom: 12px;
@@ -275,7 +275,7 @@ body.win98-desktop {
 }
 
 .cv-core-experience li::before {
-  content: "❖";
+  content: url("./public/trust0-1.png");
   position: absolute;
   left: 0;
 }
@@ -326,8 +326,8 @@ body.win98-desktop {
   padding: 2px 6px;
   background: var(--win98-bg);
   border: 2px solid;
-  border-color: var(--win98-border-light) var(--win98-border-dark)
-    var(--win98-border-dark) var(--win98-border-light);
+  border-color: var(--win98-border-dark) var(--win98-border-light)
+    var(--win98-border-light) var(--win98-border-dark);
   color: var(--win98-text);
 }
 
@@ -469,19 +469,6 @@ body.win98-desktop {
 
 .home-desktop-icon:hover {
   background: rgba(255, 255, 255, 0.1);
-}
-
-.home-desktop-icon-img {
-  width: 32px;
-  height: 32px;
-  background: #c0c0c0;
-  border: 2px solid;
-  border-color: var(--win98-border-light) var(--win98-border-dark)
-    var(--win98-border-dark) var(--win98-border-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
 }
 
 .home-links-window {

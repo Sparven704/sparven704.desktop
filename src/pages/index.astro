@@ -9,18 +9,28 @@ const lastUpdated = new Date().toISOString().split("T")[0];
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/computer_explorer_cool-0.png"
+    />
+    <link rel="icon" href="/computer_explorer_cool-0.png" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>sparven704.desktop</title>
   </head>
-  <body class="home-desktop pb-[30px]">
+  <body class="home-desktop pb-7.5">
     <div class="home-desktop-content">
       <!-- Desktop icons -->
       <div class="home-desktop-icons">
         <a href="/resume" class="home-desktop-icon" title="Resume">
-          <span class="home-desktop-icon-img">📄</span>
+          <span class="home-desktop-icon-img"
+            ><img
+              src="../../public/directory_open_file_mydocs.png"
+              alt="Resume"
+              class="w-full h-full"
+            /></span
+          >
           resume.txt
         </a>
         <a
@@ -30,12 +40,52 @@ const lastUpdated = new Date().toISOString().split("T")[0];
           class="home-desktop-icon"
           title="Music"
         >
-          <span class="home-desktop-icon-img">💿</span>
+          <span class="home-desktop-icon-img"
+            ><img
+              src="../../public/cd_audio_cd_a-4.png"
+              alt="CD Audio Icon"
+              class="w-full h-full"
+            /></span
+          >
           Music
         </a>
-        <span class="home-desktop-icon" title="Diary">
-          <span class="home-desktop-icon-img">📓</span>
-          Diary
+        <span class="home-desktop-icon" title="Terminal">
+          <span class="home-desktop-icon-img"
+            ><img
+              src="../../public/console_prompt-0.png"
+              alt="Terminal"
+              class="w-full h-full"
+            /></span
+          >
+          Terminal
+        </span>
+        <a
+          href={profile.contact.github}
+          class="home-desktop-icon"
+          title="GitHub"
+          target="_blank"
+        >
+          <span class="home-desktop-icon" title="GitHub">
+            <span class="home-desktop-icon-img"
+              ><img
+                src="../../public/github.png"
+                alt="Terminal"
+                class="w-12 h-12"
+              />
+            </span>
+            GitHub
+          </span></a
+        >
+
+        <span class="home-desktop-icon" title="Recycle bin">
+          <span class="home-desktop-icon-img"
+            ><img
+              src="../../public/recycle_bin_full-2.png"
+              alt="Terminal"
+              class="w-12 h-12"
+            /></span
+          >
+          Recycle Bin
         </span>
       </div>
 
@@ -172,7 +222,13 @@ const lastUpdated = new Date().toISOString().split("T")[0];
             <section class="home-tab-content active" id="tab-about">
               <div class="home-profile-section">
                 <h2 class="home-section-title">
-                  <span>📁</span> Profile
+                  <span
+                    ><img
+                      src="../../public/folder.png"
+                      alt="Profile"
+                      class="w-5 h-5"
+                    /></span
+                  > Profile
                 </h2>
                 <p class="home-profile-text">
                   <strong>handle:</strong>
@@ -209,7 +265,13 @@ const lastUpdated = new Date().toISOString().split("T")[0];
             <section class="home-tab-content" id="tab-contact">
               <div class="home-profile-section">
                 <h2 class="home-section-title">
-                  <span>📁</span> Contact
+                  <span
+                    ><img
+                      src="../../public/conn_dialup.png"
+                      alt="Contact"
+                      class="w-7 h-7"
+                    /></span
+                  > Contact
                 </h2>
                 <p class="home-profile-text">
                   <strong>email:</strong>
@@ -254,9 +316,9 @@ const lastUpdated = new Date().toISOString().split("T")[0];
         aria-haspopup="true"
       >
         <img
-          src="/windows-98-logo.png"
+          src="/windows-0.png"
           alt="Windows 98"
-          class="w-6 h-6 shrink-0 object-contain -ml-0.5"
+          class="w-5 h-5 shrink-0 object-contain -ml-0.5"
         />
         Start
       </button>
@@ -274,16 +336,33 @@ const lastUpdated = new Date().toISOString().split("T")[0];
       </div>
       <div class="win98-start-menu-content">
         <a href="/" class="win98-start-menu-item" role="menuitem">
-          <span class="win98-start-menu-item-icon">🏠</span>
+          <span class="win98-start-menu-item-icon"
+            ><img
+              src="./public/computer_explorer_cool-0.png"
+              alt="Windows Computer Image"
+              class="w-6 h-6"
+            /></span
+          >
           <span class="win98-start-menu-item-text">Home</span>
         </a>
         <a href="/resume" class="win98-start-menu-item" role="menuitem">
-          <span class="win98-start-menu-item-icon">📁</span>
+          <span class="win98-start-menu-item-icon"
+            ><img
+              src="./public/folder.png"
+              alt="Windows Computer Image"
+              class="w-6 h-6"
+            /></span
+          >
           <span class="win98-start-menu-item-text">Resume</span>
         </a>
-        <div class="win98-start-menu-divider"></div>
         <button type="button" class="win98-start-menu-item" role="menuitem">
-          <span class="win98-start-menu-item-icon">📁</span>
+          <span class="win98-start-menu-item-icon"
+            ><img
+              src="./public/folder.png"
+              alt="Windows Computer Image"
+              class="w-6 h-6"
+            /></span
+          >
           <span class="win98-start-menu-item-text">Programs</span>
           <span class="win98-start-menu-item-arrow">›</span>
         </button>
@@ -293,13 +372,34 @@ const lastUpdated = new Date().toISOString().split("T")[0];
           <span class="win98-start-menu-item-arrow">›</span>
         </button>
         <button type="button" class="win98-start-menu-item" role="menuitem">
-          <span class="win98-start-menu-item-icon">📁</span>
+          <span class="win98-start-menu-item-icon"
+            ><img
+              src="./public/folder.png"
+              alt="Windows Computer Image"
+              class="w-6 h-6"
+            /></span
+          >
           <span class="win98-start-menu-item-text">Documents</span>
           <span class="win98-start-menu-item-arrow">›</span>
         </button>
+        <button type="button" class="win98-start-menu-item" role="menuitem">
+          <span class="win98-start-menu-item-icon">🔍</span>
+          <span class="win98-start-menu-item-text">Find</span>
+          <span class="win98-start-menu-item-arrow">›</span>
+        </button>
+        <button type="button" class="win98-start-menu-item" role="menuitem">
+          <span class="win98-start-menu-item-icon">?</span>
+          <span class="win98-start-menu-item-text">Help</span>
+        </button>
         <div class="win98-start-menu-divider"></div>
         <button type="button" class="win98-start-menu-item" role="menuitem">
-          <span class="win98-start-menu-item-icon">⏻</span>
+          <span class="win98-start-menu-item-icon">🔑</span>
+          <span class="win98-start-menu-item-text">Log Off...</span>
+        </button>
+        <button type="button" class="win98-start-menu-item" role="menuitem">
+          <span class="win98-start-menu-item-icon" style="color: #c00000;"
+            >⏻</span
+          >
           <span class="win98-start-menu-item-text">Shut Down...</span>
         </button>
       </div>

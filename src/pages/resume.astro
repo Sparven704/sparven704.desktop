@@ -15,7 +15,7 @@ import "../styles/global.css";
     <meta name="generator" content={Astro.generator} />
     <title>Arvid - Resume</title>
   </head>
-  <body class="home-desktop flex flex-col items-center min-h-screen pb-[30px]">
+  <body class="home-desktop flex flex-col items-center min-h-screen pb-7.5">
     <main
       class="flex flex-col justify-start items-center container bg-[#c0c0c0] max-w-3xl mt-10 mx-10 mb-10 border-2 border-black border-t-[#dfdfdf] border-l-[#dfdfdf] shadow-[4px_4px_0_0_#000]"
     >
@@ -39,7 +39,7 @@ import "../styles/global.css";
           </button>
           <!-- Close - red -->
           <button
-            class="win95-raised w-4 h-3.5 flex items-center justify-center text-white text-xs font-bold bg-[#c00000] border border-[#c00000] hover:bg-[#ff0000]"
+            class="win95-raised w-4 h-3.5 flex items-center justify-center text-xs text-white font-bold bg-[#c00000] border border-[#c00000] hover:bg-[#ff0000]"
           >
             x
           </button>
@@ -104,9 +104,7 @@ import "../styles/global.css";
           <p class="cv-summary">{profile.summary}</p>
           <p class="cv-summary-subtitle font-bold mt-3 mb-2">Core Experience</p>
           <ul class="cv-core-experience">
-            {profile.coreExperience.map((item) => (
-              <li>{item}</li>
-            ))}
+            {profile.coreExperience.map((item) => <li>{item}</li>)}
           </ul>
         </div>
 
@@ -121,7 +119,9 @@ import "../styles/global.css";
                 <span class="cv-experience-company">{ex.name}</span>
                 <span class="cv-experience-role">— {ex.specification}</span>
                 <span class="win95-inset px-2 py-0.5 inline-block">
-                  <span class="cv-experience-duration font-mono">{ex.duration}</span>
+                  <span class="cv-experience-duration font-mono">
+                    {ex.duration}
+                  </span>
                 </span>
               </div>
               {ex.highlights && (
@@ -171,7 +171,9 @@ import "../styles/global.css";
               <p class="cv-education-school">{e.name}</p>
               <p class="cv-education-program">{e.specification}</p>
               <span class="win95-inset px-2 py-0.5 inline-block mt-1">
-                <span class="cv-education-duration font-mono">{e.duration}</span>
+                <span class="cv-education-duration font-mono">
+                  {e.duration}
+                </span>
               </span>
             </div>
           ))
@@ -189,9 +191,9 @@ import "../styles/global.css";
         aria-haspopup="true"
       >
         <img
-          src="/windows-98-logo.png"
+          src="/windows-0.png"
           alt="Windows 98"
-          class="w-6 h-6 shrink-0 object-contain -ml-0.5"
+          class="w-5 h-5 shrink-0 object-contain -ml-0.5"
         />
         Start
       </button>
@@ -209,19 +211,33 @@ import "../styles/global.css";
       </div>
       <div class="win98-start-menu-content">
         <a href="/" class="win98-start-menu-item" role="menuitem">
-          <span class="win98-start-menu-item-icon">🏠</span>
+          <span class="win98-start-menu-item-icon"
+            ><img
+              src="./public/computer_explorer_cool-0.png"
+              alt="Windows Computer Image"
+              class="w-6 h-6"
+            /></span
+          >
           <span class="win98-start-menu-item-text">Home</span>
         </a>
         <a href="/resume" class="win98-start-menu-item" role="menuitem">
-          <span class="win98-start-menu-item-icon">📁</span>
+          <span class="win98-start-menu-item-icon"
+            ><img
+              src="./public/folder.png"
+              alt="Windows Computer Image"
+              class="w-6 h-6"
+            /></span
+          >
           <span class="win98-start-menu-item-text">Resume</span>
         </a>
         <button type="button" class="win98-start-menu-item" role="menuitem">
-          <span class="win98-start-menu-item-icon">🌐</span>
-          <span class="win98-start-menu-item-text">Windows Update</span>
-        </button>
-        <button type="button" class="win98-start-menu-item" role="menuitem">
-          <span class="win98-start-menu-item-icon">📁</span>
+          <span class="win98-start-menu-item-icon"
+            ><img
+              src="./public/folder.png"
+              alt="Windows Computer Image"
+              class="w-6 h-6"
+            /></span
+          >
           <span class="win98-start-menu-item-text">Programs</span>
           <span class="win98-start-menu-item-arrow">›</span>
         </button>
@@ -231,13 +247,14 @@ import "../styles/global.css";
           <span class="win98-start-menu-item-arrow">›</span>
         </button>
         <button type="button" class="win98-start-menu-item" role="menuitem">
-          <span class="win98-start-menu-item-icon">📁</span>
+          <span class="win98-start-menu-item-icon"
+            ><img
+              src="./public/folder.png"
+              alt="Windows Computer Image"
+              class="w-6 h-6"
+            /></span
+          >
           <span class="win98-start-menu-item-text">Documents</span>
-          <span class="win98-start-menu-item-arrow">›</span>
-        </button>
-        <button type="button" class="win98-start-menu-item" role="menuitem">
-          <span class="win98-start-menu-item-icon">⚙</span>
-          <span class="win98-start-menu-item-text">Settings</span>
           <span class="win98-start-menu-item-arrow">›</span>
         </button>
         <button type="button" class="win98-start-menu-item" role="menuitem">
@@ -248,11 +265,6 @@ import "../styles/global.css";
         <button type="button" class="win98-start-menu-item" role="menuitem">
           <span class="win98-start-menu-item-icon">?</span>
           <span class="win98-start-menu-item-text">Help</span>
-        </button>
-        <div class="win98-start-menu-divider"></div>
-        <button type="button" class="win98-start-menu-item" role="menuitem">
-          <span class="win98-start-menu-item-icon">⏳</span>
-          <span class="win98-start-menu-item-text">Run...</span>
         </button>
         <div class="win98-start-menu-divider"></div>
         <button type="button" class="win98-start-menu-item" role="menuitem">
