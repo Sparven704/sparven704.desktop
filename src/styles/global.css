@@ -104,6 +104,208 @@ body.win98-desktop {
   padding: 1px 9px 0 5px;
 }
 
+/* Window close button X icon */
+.win98-close-x {
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+}
+
+.win98-close-x line {
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: square;
+}
+
+/* Taskbar app button (e.g. Minesweeper when open) */
+.win98-taskbar-btn {
+  height: 24px;
+  margin-left: 2px;
+  padding: 0 10px;
+  display: none;
+  align-items: center;
+  font-weight: bold;
+  font-size: 11px;
+  color: var(--win98-text);
+  background: var(--win98-bg);
+  border: 2px solid;
+  border-color: var(--win98-border-dark) var(--win98-border-light)
+    var(--win98-border-light) var(--win98-border-dark);
+  flex-shrink: 0;
+  white-space: nowrap;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.win98-taskbar-btn:hover {
+  background: #d4d0c8;
+}
+
+.win98-taskbar-btn.visible {
+  display: flex;
+}
+
+/* Minesweeper window */
+.minesweeper-window {
+  position: absolute;
+  left: 120px;
+  top: 80px;
+  display: none;
+  flex-direction: column;
+  width: 220px;
+  background: var(--win98-bg);
+  border: 2px solid;
+  border-color: var(--win98-border-light) var(--win98-border-dark)
+    var(--win98-border-dark) var(--win98-border-light);
+  box-shadow: 4px 4px 0 0 #000;
+  z-index: 100;
+}
+
+.minesweeper-window.open {
+  display: flex;
+}
+
+.minesweeper-content {
+  padding: 8px;
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: var(--win98-border-light) var(--win98-border-dark)
+    var(--win98-border-dark) var(--win98-border-light);
+}
+
+.minesweeper-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  padding: 4px;
+}
+
+.minesweeper-counter {
+  width: 36px;
+  height: 24px;
+  background: #000;
+  color: #f00;
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+}
+
+.minesweeper-face {
+  width: 28px;
+  height: 28px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: var(--win98-bg);
+  border: 2px solid;
+  border-color: var(--win98-border-dark) var(--win98-border-light)
+    var(--win98-border-light) var(--win98-border-dark);
+  padding: 0;
+}
+
+.minesweeper-face:hover {
+  background: #d4d0c8;
+}
+
+.minesweeper-grid {
+  display: grid;
+  grid-template-columns: repeat(9, 20px);
+  grid-template-rows: repeat(9, 20px);
+  gap: 0;
+  background: #c0c0c0;
+}
+
+.minesweeper-cell {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  background: var(--win98-bg);
+  border: 2px solid;
+  border-color: var(--win98-border-light) var(--win98-border-dark)
+    var(--win98-border-dark) var(--win98-border-light);
+  user-select: none;
+}
+
+.minesweeper-cell:hover:not(.revealed):not(.flagged) {
+  background: #d4d0c8;
+}
+
+.minesweeper-cell.revealed {
+  border-color: var(--win98-border-dark);
+  border-width: 1px;
+  background: #c0c0c0;
+  cursor: default;
+}
+
+.minesweeper-cell.mine {
+  background: #f00;
+}
+
+.minesweeper-cell.flagged::before {
+  content: "🚩";
+  font-size: 12px;
+}
+
+.minesweeper-cell .num-1 { color: #0000ff; }
+.minesweeper-cell .num-2 { color: #008000; }
+.minesweeper-cell .num-3 { color: #ff0000; }
+.minesweeper-cell .num-4 { color: #000080; }
+.minesweeper-cell .num-5 { color: #800000; }
+.minesweeper-cell .num-6 { color: #008080; }
+.minesweeper-cell .num-7 { color: #000000; }
+.minesweeper-cell .num-8 { color: #808080; }
+
+.minesweeper-play-again-wrap {
+  display: none;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.minesweeper-play-again-wrap.visible {
+  display: flex;
+}
+
+.minesweeper-play-again {
+  padding: 4px 16px;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.minesweeper-play-again:hover {
+  background: #d4d0c8;
+}
+
+/* Taskbar window label (inset area next to Start) */
+.win98-taskbar-window {
+  height: 24px;
+  margin-left: 2px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 11px;
+  color: var(--win98-text);
+  background: var(--win98-bg);
+  border: 2px solid;
+  border-color: var(--win98-border-dark) var(--win98-border-light)
+    var(--win98-border-light) var(--win98-border-dark);
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
 /* Windows 98 start menu */
 .win98-start-menu {
   position: fixed;
@@ -173,8 +375,8 @@ body.win98-desktop {
 }
 
 .win98-start-menu-item-icon {
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
@@ -275,7 +477,7 @@ body.win98-desktop {
 }
 
 .cv-core-experience li::before {
-  content: url("./public/trust0-1.png");
+  content: url("/trust0-1.png");
   position: absolute;
   left: 0;
 }
@@ -454,6 +656,12 @@ body.win98-desktop {
   padding-top: 8px;
 }
 
+.home-desktop-recycle-bin {
+  position: absolute;
+  bottom: 40px;
+  right: 20px;
+}
+
 .home-desktop-icon {
   display: flex;
   flex-direction: column;
@@ -469,6 +677,15 @@ body.win98-desktop {
 
 .home-desktop-icon:hover {
   background: rgba(255, 255, 255, 0.1);
+}
+
+.minesweeper-icon-btn {
+  border: none;
+  background: transparent;
+  font: inherit;
+  font-size: 11px;
+  color: white;
+  text-align: center;
 }
 
 .home-links-window {
@@ -621,4 +838,59 @@ body.win98-desktop {
   font-size: 12px;
   color: var(--win98-border-dark);
   margin-top: 12px;
+}
+
+/* Loading screen - sys/init boot sequence */
+.loading-screen {
+  min-height: 100vh;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.loading-window {
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+  background: var(--win98-bg);
+  border: 2px solid;
+  border-color: var(--win98-border-light) var(--win98-border-dark)
+    var(--win98-border-dark) var(--win98-border-light);
+  box-shadow: 4px 4px 0 0 #000;
+}
+
+.loading-content {
+  padding: 16px;
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: 13px;
+  color: var(--win98-text);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.loading-line {
+  color: var(--win98-text);
+  white-space: pre;
+}
+
+.loading-timestamp {
+  color: var(--win98-border-dark);
+}
+
+.loading-continue-btn {
+  align-self: center;
+  padding: 4px 24px;
+  font-size: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+  margin-top: 8px;
+}
+
+.loading-continue-btn:hover {
+  background: #d4d0c8;
 }

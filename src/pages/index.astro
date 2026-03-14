@@ -1,9 +1,5 @@
 ---
-import profile from "../data/profile.json";
-import links from "../data/links.json";
 import "../styles/global.css";
-
-const lastUpdated = new Date().toISOString().split("T")[0];
 ---
 
 <html lang="en">
@@ -17,446 +13,91 @@ const lastUpdated = new Date().toISOString().split("T")[0];
     <link rel="icon" href="/computer_explorer_cool-0.png" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>sparven704.desktop</title>
+    <title>sys/init - Loading</title>
   </head>
-  <body class="home-desktop pb-7.5">
-    <div class="home-desktop-content">
-      <!-- Desktop icons -->
-      <div class="home-desktop-icons">
-        <a href="/resume" class="home-desktop-icon" title="Resume">
-          <span class="home-desktop-icon-img"
-            ><img
-              src="../../public/directory_open_file_mydocs.png"
-              alt="Resume"
-              class="w-full h-full"
-            /></span
-          >
-          resume.txt
-        </a>
-        <a
-          href="https://open.spotify.com/user/arvidlj?si=e3023fb8b21c4783"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="home-desktop-icon"
-          title="Music"
-        >
-          <span class="home-desktop-icon-img"
-            ><img
-              src="../../public/cd_audio_cd_a-4.png"
-              alt="CD Audio Icon"
-              class="w-full h-full"
-            /></span
-          >
-          Music
-        </a>
-        <span class="home-desktop-icon" title="Terminal">
-          <span class="home-desktop-icon-img"
-            ><img
-              src="../../public/console_prompt-0.png"
-              alt="Terminal"
-              class="w-full h-full"
-            /></span
-          >
-          Terminal
-        </span>
-        <a
-          href={profile.contact.github}
-          class="home-desktop-icon"
-          title="GitHub"
-          target="_blank"
-        >
-          <span class="home-desktop-icon" title="GitHub">
-            <span class="home-desktop-icon-img"
-              ><img
-                src="../../public/github.png"
-                alt="Terminal"
-                class="w-12 h-12"
-              />
-            </span>
-            GitHub
-          </span></a
-        >
-
-        <span class="home-desktop-icon" title="Recycle bin">
-          <span class="home-desktop-icon-img"
-            ><img
-              src="../../public/recycle_bin_full-2.png"
-              alt="Terminal"
-              class="w-12 h-12"
-            /></span
-          >
-          Recycle Bin
-        </span>
-      </div>
-
-      <!-- Windows container -->
-      <div class="home-windows-container">
-        <!-- Links window -->
-        <div
-          class="home-links-window border-2 border-black border-t-[#dfdfdf] border-l-[#dfdfdf] shadow-[4px_4px_0_0_#000] bg-[#c0c0c0]"
-        >
-          <div
-            class="flex flex-row justify-between items-center bg-[linear-gradient(90deg,navy,#1084d0)] w-full h-6 px-1"
-          >
-            <p class="text-white text-xs font-bold truncate">Links</p>
-            <div class="flex gap-0.5 shrink-0">
-              <button
-                class="win95-raised w-4 h-3.5 flex items-center justify-center text-black hover:bg-[#d4d0c8]"
-              >
-                <div class="w-2 h-0.5 bg-black"></div>
-              </button>
-              <button
-                class="win95-raised w-4 h-3.5 flex items-center justify-center text-black hover:bg-[#d4d0c8]"
-              >
-                <div class="w-2 h-2 border border-black"></div>
-              </button>
-              <button
-                class="w-4 h-3.5 flex items-center justify-center text-white text-xs font-bold bg-[#c00000] border border-[#c00000] hover:bg-[#ff0000]"
-              >
-                x
-              </button>
-            </div>
-          </div>
-          <div class="home-links-content">
-            <div class="home-links-category">-- files --</div>
-            {
-              links.files.map((link) => (
-                <a
-                  href={link.href}
-                  class="home-links-item"
-                  target={link.href.startsWith("http") ? "_blank" : undefined}
-                  rel={
-                    link.href.startsWith("http")
-                      ? "noopener noreferrer"
-                      : undefined
-                  }
-                >
-                  <span class="home-links-prefix">[-]</span>
-                  {link.label}
-                </a>
-              ))
-            }
-            <div class="home-links-category">-- socials --</div>
-            {
-              links.socials.map((link) => (
-                <a
-                  href={link.href}
-                  class="home-links-item"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span class="home-links-prefix">[-]</span>
-                  {link.label}
-                </a>
-              ))
-            }
-            <div class="home-links-category">-- other --</div>
-            {
-              links.other.map((link) => (
-                <a
-                  href={link.href}
-                  class="home-links-item"
-                  target={link.href.startsWith("http") ? "_blank" : undefined}
-                  rel={
-                    link.href.startsWith("http")
-                      ? "noopener noreferrer"
-                      : undefined
-                  }
-                >
-                  <span class="home-links-prefix">[-]</span>
-                  {link.label}
-                </a>
-              ))
-            }
-          </div>
-        </div>
-
-        <!-- Main window -->
-        <div
-          class="home-main-window border-2 border-black border-t-[#dfdfdf] border-l-[#dfdfdf] shadow-[4px_4px_0_0_#000] bg-[#c0c0c0]"
-        >
-          <div
-            class="flex flex-row justify-between items-center bg-[linear-gradient(90deg,navy,#1084d0)] w-full h-6 px-1"
-          >
-            <p class="text-white text-xs font-bold truncate">
-              sparven704@ggez:~/
-            </p>
-            <div class="flex gap-0.5 shrink-0">
-              <button
-                class="win95-raised w-4 h-3.5 flex items-center justify-center text-black hover:bg-[#d4d0c8]"
-              >
-                <div class="w-2 h-0.5 bg-black"></div>
-              </button>
-              <button
-                class="win95-raised w-4 h-3.5 flex items-center justify-center text-black hover:bg-[#d4d0c8]"
-              >
-                <div class="w-2 h-2 border border-black"></div>
-              </button>
-              <button
-                class="w-4 h-3.5 flex items-center justify-center text-white text-xs font-bold bg-[#c00000] border border-[#c00000] hover:bg-[#ff0000]"
-              >
-                x
-              </button>
-            </div>
-          </div>
-
-          <div class="win98-separator w-full"></div>
-
-          <!-- Tabs -->
-          <div class="home-window-tabs">
-            <button
-              type="button"
-              class="home-window-tab active"
-              data-tab="about"
-            >
-              About
-            </button>
-            <button type="button" class="home-window-tab" data-tab="contact">
-              Contact
-            </button>
-            <a href="/resume" class="home-window-tab">Resume</a>
-          </div>
-
-          <!-- Content -->
-          <div class="home-window-content">
-            <section class="home-tab-content active" id="tab-about">
-              <div class="home-profile-section">
-                <h2 class="home-section-title">
-                  <span
-                    ><img
-                      src="../../public/folder.png"
-                      alt="Profile"
-                      class="w-5 h-5"
-                    /></span
-                  > Profile
-                </h2>
-                <p class="home-profile-text">
-                  <strong>handle:</strong>
-                  Sparven704
-                </p>
-                <p class="home-profile-text">
-                  <strong>mostly known for:</strong>
-                  {profile.title}. Full-stack development with .NET, Blazor,
-                  React, and cloud technologies.
-                </p>
-                <p class="home-profile-text">{profile.summary}</p>
-                <div class="home-links">
-                  <a
-                    href={profile.contact.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="home-link"
-                  >
-                    github
-                  </a>
-                  <a
-                    href={profile.contact.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="home-link"
-                  >
-                    linkedin
-                  </a>
-                </div>
-                <p class="home-updated">last updated: {lastUpdated}</p>
-              </div>
-            </section>
-
-            <section class="home-tab-content" id="tab-contact">
-              <div class="home-profile-section">
-                <h2 class="home-section-title">
-                  <span
-                    ><img
-                      src="../../public/conn_dialup.png"
-                      alt="Contact"
-                      class="w-7 h-7"
-                    /></span
-                  > Contact
-                </h2>
-                <p class="home-profile-text">
-                  <strong>email:</strong>
-                  {profile.contact.email}
-                </p>
-                <p class="home-profile-text">
-                  <strong>location:</strong>
-                  {profile.contact.location}
-                </p>
-                <div class="home-links">
-                  <a
-                    href={profile.contact.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="home-link"
-                  >
-                    LinkedIn
-                  </a>
-                  <a
-                    href={profile.contact.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="home-link"
-                  >
-                    GitHub
-                  </a>
-                </div>
-              </div>
-            </section>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Windows 98 taskbar -->
-    <footer class="win98-taskbar">
-      <button
-        type="button"
-        id="start-btn"
-        class="win98-raised win98-start-btn text-black overflow-visible ml-1"
-        aria-expanded="false"
-        aria-haspopup="true"
+  <body class="loading-screen">
+    <div class="loading-window">
+      <div
+        class="flex flex-row justify-between items-center bg-[linear-gradient(90deg,navy,#1084d0)] w-full h-6 px-1"
       >
-        <img
-          src="/windows-0.png"
-          alt="Windows 98"
-          class="w-5 h-5 shrink-0 object-contain -ml-0.5"
-        />
-        Start
-      </button>
-    </footer>
-
-    <!-- Windows 98 start menu -->
-    <div
-      id="start-menu"
-      class="win98-start-menu"
-      role="menu"
-      aria-label="Start menu"
-    >
-      <div class="win98-start-menu-sidebar">
-        <span class="win98-start-menu-branding">Windows98</span>
+        <p class="text-white text-xs font-bold truncate">sys/init</p>
+        <div class="flex gap-0.5 shrink-0">
+          <button
+            class="win95-raised w-4 h-3.5 flex items-center justify-center text-black"
+          >
+            <div class="w-2 h-0.5 bg-black"></div>
+          </button>
+          <button
+            class="win95-raised w-4 h-3.5 flex items-center justify-center text-black"
+          >
+            <div class="w-2 h-2 border border-black"></div>
+          </button>
+          <button
+            class="win95-raised w-4 h-3.5 flex items-center justify-center text-black"
+          >
+            <svg class="win98-close-x" viewBox="0 0 10 10" fill="none">
+              <line x1="1" y1="1" x2="9" y2="9" />
+              <line x1="9" y1="1" x2="1" y2="9" />
+            </svg>
+          </button>
+        </div>
       </div>
-      <div class="win98-start-menu-content">
-        <a href="/" class="win98-start-menu-item" role="menuitem">
-          <span class="win98-start-menu-item-icon"
-            ><img
-              src="./public/computer_explorer_cool-0.png"
-              alt="Windows Computer Image"
-              class="w-6 h-6"
-            /></span
-          >
-          <span class="win98-start-menu-item-text">Home</span>
-        </a>
-        <a href="/resume" class="win98-start-menu-item" role="menuitem">
-          <span class="win98-start-menu-item-icon"
-            ><img
-              src="./public/folder.png"
-              alt="Windows Computer Image"
-              class="w-6 h-6"
-            /></span
-          >
-          <span class="win98-start-menu-item-text">Resume</span>
-        </a>
-        <button type="button" class="win98-start-menu-item" role="menuitem">
-          <span class="win98-start-menu-item-icon"
-            ><img
-              src="./public/folder.png"
-              alt="Windows Computer Image"
-              class="w-6 h-6"
-            /></span
-          >
-          <span class="win98-start-menu-item-text">Programs</span>
-          <span class="win98-start-menu-item-arrow">›</span>
-        </button>
-        <button type="button" class="win98-start-menu-item" role="menuitem">
-          <span class="win98-start-menu-item-icon">★</span>
-          <span class="win98-start-menu-item-text">Favorites</span>
-          <span class="win98-start-menu-item-arrow">›</span>
-        </button>
-        <button type="button" class="win98-start-menu-item" role="menuitem">
-          <span class="win98-start-menu-item-icon"
-            ><img
-              src="./public/folder.png"
-              alt="Windows Computer Image"
-              class="w-6 h-6"
-            /></span
-          >
-          <span class="win98-start-menu-item-text">Documents</span>
-          <span class="win98-start-menu-item-arrow">›</span>
-        </button>
-        <button type="button" class="win98-start-menu-item" role="menuitem">
-          <span class="win98-start-menu-item-icon">🔍</span>
-          <span class="win98-start-menu-item-text">Find</span>
-          <span class="win98-start-menu-item-arrow">›</span>
-        </button>
-        <button type="button" class="win98-start-menu-item" role="menuitem">
-          <span class="win98-start-menu-item-icon">?</span>
-          <span class="win98-start-menu-item-text">Help</span>
-        </button>
-        <div class="win98-start-menu-divider"></div>
-        <button type="button" class="win98-start-menu-item" role="menuitem">
-          <span class="win98-start-menu-item-icon">🔑</span>
-          <span class="win98-start-menu-item-text">Log Off...</span>
-        </button>
-        <button type="button" class="win98-start-menu-item" role="menuitem">
-          <span class="win98-start-menu-item-icon" style="color: #c00000;"
-            >⏻</span
-          >
-          <span class="win98-start-menu-item-text">Shut Down...</span>
-        </button>
+      <div class="loading-content">
+        <div id="loading-steps"></div>
+        <a href="/home" class="loading-continue-btn win95-raised"> continue </a>
       </div>
     </div>
 
     <script>
-      const startBtn = document.getElementById("start-btn")!;
-      const startMenu = document.getElementById("start-menu")!;
+      const steps = [
+        "[0.000] loading sparven704.desktop...",
+        "[0.013] mounting /dev/audio",
+        "[0.029] initializing 98.css",
+        "[0.037] sparven.service started",
+        "[0.044] all systems nominal",
+      ];
 
-      function toggleStartMenu() {
-        const isOpen = startMenu.classList.toggle("open");
-        startBtn.classList.toggle("pressed", isOpen);
-        startBtn.setAttribute("aria-expanded", String(isOpen));
-      }
+      const container = document.getElementById("loading-steps")!;
 
-      function closeStartMenu() {
-        startMenu.classList.remove("open");
-        startBtn.classList.remove("pressed");
-        startBtn.setAttribute("aria-expanded", "false");
-      }
-
-      startBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        toggleStartMenu();
-      });
-
-      document.addEventListener("click", () => closeStartMenu());
-      startMenu.addEventListener("click", (e) => e.stopPropagation());
-
-      function showTab(tabId: string) {
-        document
-          .querySelectorAll(".home-tab-content")
-          .forEach((el) => el.classList.remove("active"));
-        document
-          .querySelectorAll(".home-window-tab[data-tab]")
-          .forEach((el) => el.classList.remove("active"));
-        const content = document.getElementById(`tab-${tabId}`);
-        const tab = document.querySelector(
-          `.home-window-tab[data-tab="${tabId}"]`,
-        );
-        if (content) content.classList.add("active");
-        if (tab) tab.classList.add("active");
-        history.replaceState(null, "", tabId === "contact" ? "/#contact" : "/");
-      }
-
-      document.querySelectorAll(".home-window-tab[data-tab]").forEach((tab) => {
-        tab.addEventListener("click", () => {
-          const tabId = tab.getAttribute("data-tab");
-          if (tabId) showTab(tabId);
+      async function typeText(
+        element: HTMLElement,
+        text: string,
+        speed: number = 30,
+      ) {
+        return new Promise<void>((resolve) => {
+          let i = 0;
+          element.textContent = "";
+          const interval = setInterval(() => {
+            if (i < text.length) {
+              element.textContent += text[i];
+              i++;
+            } else {
+              clearInterval(interval);
+              resolve();
+            }
+          }, speed);
         });
-      });
-
-      if (window.location.hash === "#contact") {
-        showTab("contact");
-      } else {
-        showTab("about");
       }
+
+      async function runLoading() {
+        for (const step of steps) {
+          const line = document.createElement("div");
+          line.className = "loading-line";
+          const bracketEnd = step.indexOf("] ");
+          const timestamp = bracketEnd >= 0 ? step.slice(0, bracketEnd + 2) : "";
+          const message = bracketEnd >= 0 ? step.slice(bracketEnd + 2) : step;
+          const timestampSpan = document.createElement("span");
+          timestampSpan.className = "loading-timestamp";
+          timestampSpan.textContent = timestamp;
+          const messageSpan = document.createElement("span");
+          line.appendChild(timestampSpan);
+          line.appendChild(messageSpan);
+          container.appendChild(line);
+          await typeText(messageSpan, message, 25);
+        }
+      }
+
+      runLoading();
     </script>
   </body>
 </html>

@@ -1,0 +1,778 @@
+---
+import profile from "../data/profile.json";
+import links from "../data/links.json";
+import "../styles/global.css";
+
+const lastUpdated = new Date().toISOString().split("T")[0];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/computer_explorer_cool-0.png"
+    />
+    <link rel="icon" href="/computer_explorer_cool-0.png" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>sparven704.desktop</title>
+  </head>
+  <body class="home-desktop pb-7.5">
+    <div class="home-desktop-content">
+      <!-- Desktop icons -->
+      <div class="home-desktop-icons">
+        <a href="/resume" class="home-desktop-icon" title="Resume">
+          <span class="home-desktop-icon-img"
+            ><img
+              src="/directory_open_file_mydocs.png"
+              alt="Resume"
+              class="w-full h-full"
+            /></span
+          >
+          resume.txt
+        </a>
+        <a
+          href="https://open.spotify.com/user/arvidlj?si=e3023fb8b21c4783"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="home-desktop-icon"
+          title="Music"
+        >
+          <span class="home-desktop-icon-img"
+            ><img
+              src="/cd_audio_cd_a-4.png"
+              alt="CD Audio Icon"
+              class="w-full h-full"
+            /></span
+          >
+          Music
+        </a>
+        <span class="home-desktop-icon" title="Terminal">
+          <span class="home-desktop-icon-img"
+            ><img
+              src="/console_prompt-0.png"
+              alt="Terminal"
+              class="w-full h-full"
+            /></span
+          >
+          Terminal
+        </span>
+        <a
+          href={profile.contact.github}
+          class="home-desktop-icon"
+          title="GitHub"
+          target="_blank"
+        >
+          <span class="home-desktop-icon" title="GitHub">
+            <span class="home-desktop-icon-img"
+              ><img src="/github.png" alt="Terminal" class="w-12 h-12" />
+            </span>
+            GitHub
+          </span></a
+        >
+        <button
+          type="button"
+          class="home-desktop-icon minesweeper-icon-btn"
+          title="Minesweeper"
+          id="minesweeper-icon"
+        >
+          <span class="home-desktop-icon-img">
+            <img
+              src="/game_mine_1-0.png"
+              alt="Minesweeper"
+              class="w-12 h-12 object-contain"
+            />
+          </span>
+          Minesweeper
+        </button>
+      </div>
+
+      <!-- Recycle Bin - bottom right corner -->
+      <div class="home-desktop-recycle-bin">
+        <span class="home-desktop-icon" title="Recycle Bin">
+          <span class="home-desktop-icon-img">
+            <img
+              src="/recycle_bin_full-2.png"
+              alt="Recycle Bin"
+              class="w-full h-full object-contain"
+            />
+          </span>
+          Recycle Bin
+        </span>
+      </div>
+
+      <!-- Windows container -->
+      <div class="home-windows-container">
+        <!-- Links window -->
+        <div
+          class="home-links-window border-2 border-black border-t-[#dfdfdf] border-l-[#dfdfdf] shadow-[4px_4px_0_0_#000] bg-[#c0c0c0]"
+        >
+          <div
+            class="flex flex-row justify-between items-center bg-[linear-gradient(90deg,navy,#1084d0)] w-full h-6 px-1"
+          >
+            <p class="text-white text-xs font-bold truncate">Links</p>
+            <div class="flex gap-0.5 shrink-0">
+              <button
+                class="win95-raised w-4 h-3.5 flex items-center justify-center text-black hover:bg-[#d4d0c8]"
+              >
+                <div class="w-2 h-0.5 bg-black"></div>
+              </button>
+              <button
+                class="win95-raised w-4 h-3.5 flex items-center justify-center text-black hover:bg-[#d4d0c8]"
+              >
+                <div class="w-2 h-2 border border-black"></div>
+              </button>
+              <button
+                class="win95-raised w-4 h-3.5 flex items-center justify-center text-black hover:bg-[#d4d0c8]"
+              >
+                <svg class="win98-close-x" viewBox="0 0 10 10" fill="none">
+                  <line x1="1" y1="1" x2="9" y2="9"></line>
+                  <line x1="9" y1="1" x2="1" y2="9"></line>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="home-links-content">
+            <div class="home-links-category">-- files --</div>
+            {
+              links.files.map((link) => (
+                <a
+                  href={link.href}
+                  class="home-links-item"
+                  target={link.href.startsWith("http") ? "_blank" : undefined}
+                  rel={
+                    link.href.startsWith("http")
+                      ? "noopener noreferrer"
+                      : undefined
+                  }
+                >
+                  <span class="home-links-prefix">[-]</span>
+                  {link.label}
+                </a>
+              ))
+            }
+            <div class="home-links-category">-- socials --</div>
+            {
+              links.socials.map((link) => (
+                <a
+                  href={link.href}
+                  class="home-links-item"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span class="home-links-prefix">[-]</span>
+                  {link.label}
+                </a>
+              ))
+            }
+            <div class="home-links-category">-- other --</div>
+            {
+              links.other.map((link) => (
+                <a
+                  href={link.href}
+                  class="home-links-item"
+                  target={link.href.startsWith("http") ? "_blank" : undefined}
+                  rel={
+                    link.href.startsWith("http")
+                      ? "noopener noreferrer"
+                      : undefined
+                  }
+                >
+                  <span class="home-links-prefix">[-]</span>
+                  {link.label}
+                </a>
+              ))
+            }
+          </div>
+        </div>
+
+        <!-- Main window -->
+        <div
+          class="home-main-window border-2 border-black border-t-[#dfdfdf] border-l-[#dfdfdf] shadow-[4px_4px_0_0_#000] bg-[#c0c0c0]"
+        >
+          <div
+            class="flex flex-row justify-between items-center bg-[linear-gradient(90deg,navy,#1084d0)] w-full h-6 px-1"
+          >
+            <p class="text-white text-xs font-bold truncate">
+              sparven704@win98pc:~/
+            </p>
+            <div class="flex gap-0.5 shrink-0">
+              <button
+                class="win95-raised w-4 h-3.5 flex items-center justify-center text-black hover:bg-[#d4d0c8]"
+              >
+                <div class="w-2 h-0.5 bg-black"></div>
+              </button>
+              <button
+                class="win95-raised w-4 h-3.5 flex items-center justify-center text-black hover:bg-[#d4d0c8]"
+              >
+                <div class="w-2 h-2 border border-black"></div>
+              </button>
+              <button
+                class="win95-raised w-4 h-3.5 flex items-center justify-center text-black hover:bg-[#d4d0c8]"
+              >
+                <svg class="win98-close-x" viewBox="0 0 10 10" fill="none">
+                  <line x1="1" y1="1" x2="9" y2="9"></line>
+                  <line x1="9" y1="1" x2="1" y2="9"></line>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="win98-separator w-full"></div>
+
+          <!-- Tabs -->
+          <div class="home-window-tabs">
+            <button
+              type="button"
+              class="home-window-tab active"
+              data-tab="about"
+            >
+              About
+            </button>
+            <button type="button" class="home-window-tab" data-tab="contact">
+              Contact
+            </button>
+            <a href="/resume" class="home-window-tab">Resume</a>
+          </div>
+
+          <!-- Content -->
+          <div class="home-window-content">
+            <section class="home-tab-content active" id="tab-about">
+              <div class="home-profile-section">
+                <h2 class="home-section-title">
+                  <span
+                    ><img
+                      src="/file_question.png"
+                      alt="Profile"
+                      class="w-5 h-5"
+                    /></span
+                  > Profile
+                </h2>
+                <p class="home-profile-text">
+                  <strong>handle:</strong>
+                  Sparven704
+                </p>
+                <p class="home-profile-text">
+                  <strong>mostly known for:</strong>
+                  {profile.title}. Full-stack development with .NET, Blazor,
+                  React, and cloud technologies.
+                </p>
+                <p class="home-profile-text">{profile.summary}</p>
+                <div class="home-links">
+                  <a
+                    href={profile.contact.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="home-link"
+                  >
+                    github
+                  </a>
+                  <a
+                    href={profile.contact.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="home-link"
+                  >
+                    linkedin
+                  </a>
+                </div>
+                <p class="home-updated">last updated: {lastUpdated}</p>
+              </div>
+            </section>
+
+            <section class="home-tab-content" id="tab-contact">
+              <div class="home-profile-section">
+                <h2 class="home-section-title">
+                  <span
+                    ><img
+                      src="/conn_dialup.png"
+                      alt="Contact"
+                      class="w-7 h-7"
+                    /></span
+                  > Contact
+                </h2>
+                <p class="home-profile-text">
+                  <strong>email:</strong>
+                  {profile.contact.email}
+                </p>
+                <p class="home-profile-text">
+                  <strong>location:</strong>
+                  {profile.contact.location}
+                </p>
+                <div class="home-links">
+                  <a
+                    href={profile.contact.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="home-link"
+                  >
+                    LinkedIn
+                  </a>
+                  <a
+                    href={profile.contact.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="home-link"
+                  >
+                    GitHub
+                  </a>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      <!-- Minesweeper window -->
+      <div
+        id="minesweeper-window"
+        class="minesweeper-window"
+        aria-hidden="true"
+      >
+        <div
+          class="flex flex-row justify-between items-center bg-[linear-gradient(90deg,navy,#1084d0)] w-full h-6 px-1"
+        >
+          <p class="text-white text-xs font-bold truncate">Minesweeper</p>
+          <div class="flex gap-0.5 shrink-0">
+            <button
+              class="win95-raised w-4 h-3.5 flex items-center justify-center text-black hover:bg-[#d4d0c8]"
+            >
+              <div class="w-2 h-0.5 bg-black"></div>
+            </button>
+            <button
+              class="win95-raised w-4 h-3.5 flex items-center justify-center text-black hover:bg-[#d4d0c8]"
+            >
+              <div class="w-2 h-2 border border-black"></div>
+            </button>
+            <button
+              type="button"
+              class="win95-raised w-4 h-3.5 flex items-center justify-center text-black hover:bg-[#d4d0c8] minesweeper-close-btn"
+            >
+              <svg class="win98-close-x" viewBox="0 0 10 10" fill="none">
+                <line x1="1" y1="1" x2="9" y2="9"></line>
+                <line x1="9" y1="1" x2="1" y2="9"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="minesweeper-content">
+          <div class="minesweeper-toolbar">
+            <div class="minesweeper-counter" id="minesweeper-mines">010</div>
+            <button
+              type="button"
+              class="minesweeper-face"
+              id="minesweeper-face"
+              aria-label="New game"
+            >
+              🙂
+            </button>
+            <div class="minesweeper-counter" id="minesweeper-timer">000</div>
+          </div>
+          <div class="minesweeper-grid" id="minesweeper-grid"></div>
+          <div
+            class="minesweeper-play-again-wrap"
+            id="minesweeper-play-again-wrap"
+          >
+            <button
+              type="button"
+              class="win95-raised minesweeper-play-again"
+              id="minesweeper-play-again"
+            >
+              Play again
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Windows 98 taskbar -->
+    <footer class="win98-taskbar">
+      <button
+        type="button"
+        id="start-btn"
+        class="win98-raised win98-start-btn text-black overflow-visible ml-1"
+        aria-expanded="false"
+        aria-haspopup="true"
+      >
+        <img
+          src="/windows-0.png"
+          alt="Windows 98"
+          class="w-5 h-5 shrink-0 object-contain -ml-0.5"
+        />
+        Start
+      </button>
+      <div class="win98-taskbar-window">sparven704.desktop</div>
+      <button
+        type="button"
+        class="win98-taskbar-btn minesweeper-taskbar-btn"
+        id="minesweeper-taskbar-btn"
+        aria-label="Minesweeper"
+      >
+        Minesweeper
+      </button>
+    </footer>
+
+    <!-- Windows 98 start menu -->
+    <div
+      id="start-menu"
+      class="win98-start-menu"
+      role="menu"
+      aria-label="Start menu"
+    >
+      <div class="win98-start-menu-sidebar">
+        <span class="win98-start-menu-branding">Windows98</span>
+      </div>
+      <div class="win98-start-menu-content">
+        <a href="/home" class="win98-start-menu-item" role="menuitem">
+          <span class="win98-start-menu-item-icon"
+            ><img
+              src="/computer_explorer_cool-0.png"
+              alt="Windows Computer Image"
+              class="w-5 h-5"
+            /></span
+          >
+          <span class="win98-start-menu-item-text">Home</span>
+        </a>
+        <a href="/resume" class="win98-start-menu-item" role="menuitem">
+          <span class="win98-start-menu-item-icon"
+            ><img
+              src="/folder.png"
+              alt="Windows Computer Image"
+              class="w-5 h-5"
+            /></span
+          >
+          <span class="win98-start-menu-item-text">Resume</span>
+        </a>
+        <button type="button" class="win98-start-menu-item" role="menuitem">
+          <span class="win98-start-menu-item-icon"
+            ><img src="/console_prompt-0.png" alt="" class="w-5 h-5" /></span
+          >
+          <span class="win98-start-menu-item-text">Terminal</span>
+        </button>
+        <button type="button" class="win98-start-menu-item" role="menuitem">
+          <span class="win98-start-menu-item-icon"
+            ><img src="/directory_favorites.png" alt="" class="w-5 h-5" /></span
+          >
+          <span class="win98-start-menu-item-text">Favorites</span>
+          <span class="win98-start-menu-item-arrow">›</span>
+        </button>
+        <button type="button" class="win98-start-menu-item" role="menuitem">
+          <span class="win98-start-menu-item-icon"
+            ><img src="/search_file.png" alt="" class="w-5 h-5" /></span
+          >
+          <span class="win98-start-menu-item-text">Find</span>
+          <span class="win98-start-menu-item-arrow">›</span>
+        </button>
+        <button type="button" class="win98-start-menu-item" role="menuitem">
+          <span class="win98-start-menu-item-icon"
+            ><img src="/help_book.png" alt="" class="w-5 h-5" /></span
+          >
+          <span class="win98-start-menu-item-text">Help</span>
+        </button>
+        <button type="button" class="win98-start-menu-item" role="menuitem">
+          <span class="win98-start-menu-item-icon"
+            ><img src="/settings_gear.png" alt="" class="w-5 h-5" /></span
+          >
+          <span class="win98-start-menu-item-text">Settings</span>
+        </button>
+        <div class="win98-start-menu-divider"></div>
+        <button type="button" class="win98-start-menu-item" role="menuitem">
+          <span class="win98-start-menu-item-icon"
+            ><img src="/key_win.png" alt="" class="w-5 h-5" /></span
+          >
+          <span class="win98-start-menu-item-text">Log Off sparven704...</span>
+        </button>
+        <button type="button" class="win98-start-menu-item" role="menuitem">
+          <span class="win98-start-menu-item-icon"
+            ><img src="/shut_down.png" alt="" class="w-5 h-5" /></span
+          >
+          <span class="win98-start-menu-item-text">Shut Down...</span>
+        </button>
+      </div>
+    </div>
+
+    <script>
+      const startBtn = document.getElementById("start-btn")!;
+      const startMenu = document.getElementById("start-menu")!;
+
+      function toggleStartMenu() {
+        const isOpen = startMenu.classList.toggle("open");
+        startBtn.classList.toggle("pressed", isOpen);
+        startBtn.setAttribute("aria-expanded", String(isOpen));
+      }
+
+      function closeStartMenu() {
+        startMenu.classList.remove("open");
+        startBtn.classList.remove("pressed");
+        startBtn.setAttribute("aria-expanded", "false");
+      }
+
+      startBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toggleStartMenu();
+      });
+
+      document.addEventListener("click", () => closeStartMenu());
+      startMenu.addEventListener("click", (e) => e.stopPropagation());
+
+      function showTab(tabId: string) {
+        document
+          .querySelectorAll(".home-tab-content")
+          .forEach((el) => el.classList.remove("active"));
+        document
+          .querySelectorAll(".home-window-tab[data-tab]")
+          .forEach((el) => el.classList.remove("active"));
+        const content = document.getElementById(`tab-${tabId}`);
+        const tab = document.querySelector(
+          `.home-window-tab[data-tab="${tabId}"]`,
+        );
+        if (content) content.classList.add("active");
+        if (tab) tab.classList.add("active");
+        history.replaceState(
+          null,
+          "",
+          tabId === "contact" ? "/home#contact" : "/home",
+        );
+      }
+
+      document.querySelectorAll(".home-window-tab[data-tab]").forEach((tab) => {
+        tab.addEventListener("click", () => {
+          const tabId = tab.getAttribute("data-tab");
+          if (tabId) showTab(tabId);
+        });
+      });
+
+      if (window.location.hash === "#contact") {
+        showTab("contact");
+      } else {
+        showTab("about");
+      }
+
+      // Minesweeper
+      const ROWS = 9;
+      const COLS = 9;
+      const MINES = 10;
+
+      const minesweeperIcon = document.getElementById("minesweeper-icon")!;
+      const minesweeperWindow = document.getElementById("minesweeper-window")!;
+      const minesweeperCloseBtn = document.querySelector(
+        ".minesweeper-close-btn",
+      )!;
+      const minesweeperTaskbarBtn = document.getElementById(
+        "minesweeper-taskbar-btn",
+      )!;
+      const minesweeperGrid = document.getElementById("minesweeper-grid")!;
+      const minesweeperFace = document.getElementById("minesweeper-face")!;
+      const minesweeperMinesEl = document.getElementById("minesweeper-mines")!;
+      const minesweeperTimerEl = document.getElementById("minesweeper-timer")!;
+      const minesweeperPlayAgainWrap = document.getElementById(
+        "minesweeper-play-again-wrap",
+      )!;
+      const minesweeperPlayAgainBtn = document.getElementById(
+        "minesweeper-play-again",
+      )!;
+
+      let grid: number[][] = [];
+      let revealed: boolean[][] = [];
+      let flagged: boolean[][] = [];
+      let gameOver = false;
+      let timerInterval: number | null = null;
+      let seconds = 0;
+      let flagsLeft = MINES;
+
+      function initGame() {
+        grid = [];
+        revealed = [];
+        flagged = [];
+        gameOver = false;
+        flagsLeft = MINES;
+        seconds = 0;
+        if (timerInterval) clearInterval(timerInterval);
+        timerInterval = null;
+        minesweeperMinesEl.textContent = String(flagsLeft).padStart(3, "0");
+        minesweeperTimerEl.textContent = "000";
+        minesweeperFace.textContent = "🙂";
+        updatePlayAgainVisibility();
+
+        const positions: [number, number][] = [];
+        for (let r = 0; r < ROWS; r++) {
+          for (let c = 0; c < COLS; c++) positions.push([r, c]);
+        }
+        for (let i = positions.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [positions[i], positions[j]] = [positions[j], positions[i]];
+        }
+        for (let r = 0; r < ROWS; r++) {
+          grid[r] = [];
+          revealed[r] = [];
+          flagged[r] = [];
+          for (let c = 0; c < COLS; c++) {
+            grid[r][c] = 0;
+            revealed[r][c] = false;
+            flagged[r][c] = false;
+          }
+        }
+        for (let i = 0; i < MINES; i++) {
+          const [r, c] = positions[i];
+          grid[r][c] = -1;
+        }
+        for (let r = 0; r < ROWS; r++) {
+          for (let c = 0; c < COLS; c++) {
+            if (grid[r][c] === -1) continue;
+            let count = 0;
+            for (let dr = -1; dr <= 1; dr++) {
+              for (let dc = -1; dc <= 1; dc++) {
+                const nr = r + dr,
+                  nc = c + dc;
+                if (
+                  nr >= 0 &&
+                  nr < ROWS &&
+                  nc >= 0 &&
+                  nc < COLS &&
+                  grid[nr][nc] === -1
+                )
+                  count++;
+              }
+            }
+            grid[r][c] = count;
+          }
+        }
+      }
+
+      function renderGrid() {
+        minesweeperGrid.innerHTML = "";
+        for (let r = 0; r < ROWS; r++) {
+          for (let c = 0; c < COLS; c++) {
+            const cell = document.createElement("button");
+            cell.type = "button";
+            cell.className = "minesweeper-cell";
+            cell.dataset.row = String(r);
+            cell.dataset.col = String(c);
+            if (revealed[r][c]) {
+              cell.classList.add("revealed");
+              if (grid[r][c] === -1) {
+                cell.classList.add("mine");
+                cell.textContent = "💣";
+              } else if (grid[r][c] > 0) {
+                const span = document.createElement("span");
+                span.className = `num-${grid[r][c]}`;
+                span.textContent = String(grid[r][c]);
+                cell.appendChild(span);
+              }
+            } else if (flagged[r][c]) {
+              cell.classList.add("flagged");
+            }
+            cell.addEventListener("click", () => handleClick(r, c));
+            cell.addEventListener("contextmenu", (e) => {
+              e.preventDefault();
+              handleRightClick(r, c);
+            });
+            minesweeperGrid.appendChild(cell);
+          }
+        }
+      }
+
+      function startTimer() {
+        if (timerInterval) return;
+        timerInterval = window.setInterval(() => {
+          seconds++;
+          minesweeperTimerEl.textContent = String(seconds).padStart(3, "0");
+        }, 1000);
+      }
+
+      function handleClick(r: number, c: number) {
+        if (gameOver || revealed[r][c] || flagged[r][c]) return;
+        startTimer();
+        if (grid[r][c] === -1) {
+          gameOver = true;
+          minesweeperFace.textContent = "💀";
+          for (let rr = 0; rr < ROWS; rr++) {
+            for (let cc = 0; cc < COLS; cc++) {
+              if (grid[rr][cc] === -1) revealed[rr][cc] = true;
+            }
+          }
+        } else {
+          reveal(r, c);
+          if (checkWin()) {
+            gameOver = true;
+            minesweeperFace.textContent = "😎";
+            if (timerInterval) clearInterval(timerInterval);
+          }
+        }
+        renderGrid();
+        updatePlayAgainVisibility();
+      }
+
+      function reveal(r: number, c: number) {
+        if (
+          r < 0 ||
+          r >= ROWS ||
+          c < 0 ||
+          c >= COLS ||
+          revealed[r][c] ||
+          flagged[r][c]
+        )
+          return;
+        revealed[r][c] = true;
+        if (grid[r][c] === 0) {
+          for (let dr = -1; dr <= 1; dr++) {
+            for (let dc = -1; dc <= 1; dc++) reveal(r + dr, c + dc);
+          }
+        }
+      }
+
+      function handleRightClick(r: number, c: number) {
+        if (gameOver || revealed[r][c]) return;
+        flagged[r][c] = !flagged[r][c];
+        flagsLeft += flagged[r][c] ? -1 : 1;
+        minesweeperMinesEl.textContent = String(flagsLeft).padStart(3, "0");
+        renderGrid();
+      }
+
+      function checkWin(): boolean {
+        for (let r = 0; r < ROWS; r++) {
+          for (let c = 0; c < COLS; c++) {
+            if (grid[r][c] !== -1 && !revealed[r][c]) return false;
+          }
+        }
+        return true;
+      }
+
+      function updatePlayAgainVisibility() {
+        minesweeperPlayAgainWrap.classList.toggle("visible", gameOver);
+      }
+
+      function openMinesweeper() {
+        minesweeperWindow.classList.add("open");
+        minesweeperWindow.setAttribute("aria-hidden", "false");
+        minesweeperTaskbarBtn.classList.add("visible");
+        initGame();
+        renderGrid();
+      }
+
+      function closeMinesweeper() {
+        minesweeperWindow.classList.remove("open");
+        minesweeperWindow.setAttribute("aria-hidden", "true");
+        minesweeperTaskbarBtn.classList.remove("visible");
+      }
+
+      minesweeperPlayAgainBtn.addEventListener("click", () => {
+        initGame();
+        renderGrid();
+      });
+
+      minesweeperIcon.addEventListener("click", openMinesweeper);
+      minesweeperCloseBtn.addEventListener("click", closeMinesweeper);
+      minesweeperTaskbarBtn.addEventListener("click", () => {
+        if (minesweeperWindow.classList.contains("open")) {
+          minesweeperWindow.style.zIndex = String(101);
+          setTimeout(() => {
+            minesweeperWindow.style.zIndex = "100";
+          }, 10);
+        }
+      });
+    </script>
+  </body>
+</html>

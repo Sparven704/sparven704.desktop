@@ -39,9 +39,12 @@ import "../styles/global.css";
           </button>
           <!-- Close - red -->
           <button
-            class="win95-raised w-4 h-3.5 flex items-center justify-center text-xs text-white font-bold bg-[#c00000] border border-[#c00000] hover:bg-[#ff0000]"
+            class="win95-raised w-4 h-3.5 flex items-center justify-center text-black hover:bg-[#d4d0c8]"
           >
-            x
+            <svg class="win98-close-x" viewBox="0 0 10 10" fill="none">
+              <line x1="1" y1="1" x2="9" y2="9"></line>
+              <line x1="9" y1="1" x2="1" y2="9"></line>
+            </svg>
           </button>
         </div>
       </div>
@@ -52,13 +55,13 @@ import "../styles/global.css";
       <!-- Navigation buttons -->
       <div class="flex gap-2 p-2 bg-[#c0c0c0] w-full">
         <a
-          href="/"
+          href="/home"
           class="win95-raised px-3 py-1 text-sm font-normal text-black no-underline hover:bg-[#d4d0c8]"
         >
           ← back
         </a>
         <a
-          href="/"
+          href="/home"
           class="win95-raised px-3 py-1 text-sm font-normal text-black no-underline hover:bg-[#d4d0c8]"
         >
           home
@@ -197,6 +200,7 @@ import "../styles/global.css";
         />
         Start
       </button>
+      <div class="win98-taskbar-window">resume.txt</div>
     </footer>
 
     <!-- Windows 98 start menu -->
@@ -210,12 +214,12 @@ import "../styles/global.css";
         <span class="win98-start-menu-branding">Windows98</span>
       </div>
       <div class="win98-start-menu-content">
-        <a href="/" class="win98-start-menu-item" role="menuitem">
+        <a href="/home" class="win98-start-menu-item" role="menuitem">
           <span class="win98-start-menu-item-icon"
             ><img
-              src="./public/computer_explorer_cool-0.png"
+              src="/computer_explorer_cool-0.png"
               alt="Windows Computer Image"
-              class="w-6 h-6"
+              class="w-5 h-5"
             /></span
           >
           <span class="win98-start-menu-item-text">Home</span>
@@ -223,57 +227,55 @@ import "../styles/global.css";
         <a href="/resume" class="win98-start-menu-item" role="menuitem">
           <span class="win98-start-menu-item-icon"
             ><img
-              src="./public/folder.png"
+              src="/folder.png"
               alt="Windows Computer Image"
-              class="w-6 h-6"
+              class="w-5 h-5"
             /></span
           >
           <span class="win98-start-menu-item-text">Resume</span>
         </a>
         <button type="button" class="win98-start-menu-item" role="menuitem">
           <span class="win98-start-menu-item-icon"
-            ><img
-              src="./public/folder.png"
-              alt="Windows Computer Image"
-              class="w-6 h-6"
-            /></span
+            ><img src="/console_prompt-0.png" alt="" class="w-5 h-5" /></span
           >
-          <span class="win98-start-menu-item-text">Programs</span>
-          <span class="win98-start-menu-item-arrow">›</span>
+          <span class="win98-start-menu-item-text">Terminal</span>
         </button>
         <button type="button" class="win98-start-menu-item" role="menuitem">
-          <span class="win98-start-menu-item-icon">★</span>
+          <span class="win98-start-menu-item-icon"
+            ><img src="/directory_favorites.png" alt="" class="w-5 h-5" /></span
+          >
           <span class="win98-start-menu-item-text">Favorites</span>
           <span class="win98-start-menu-item-arrow">›</span>
         </button>
         <button type="button" class="win98-start-menu-item" role="menuitem">
           <span class="win98-start-menu-item-icon"
-            ><img
-              src="./public/folder.png"
-              alt="Windows Computer Image"
-              class="w-6 h-6"
-            /></span
+            ><img src="/search_file.png" alt="" class="w-5 h-5" /></span
           >
-          <span class="win98-start-menu-item-text">Documents</span>
-          <span class="win98-start-menu-item-arrow">›</span>
-        </button>
-        <button type="button" class="win98-start-menu-item" role="menuitem">
-          <span class="win98-start-menu-item-icon">🔍</span>
           <span class="win98-start-menu-item-text">Find</span>
           <span class="win98-start-menu-item-arrow">›</span>
         </button>
         <button type="button" class="win98-start-menu-item" role="menuitem">
-          <span class="win98-start-menu-item-icon">?</span>
+          <span class="win98-start-menu-item-icon"
+            ><img src="/help_book.png" alt="" class="w-5 h-5" /></span
+          >
           <span class="win98-start-menu-item-text">Help</span>
+        </button>
+        <button type="button" class="win98-start-menu-item" role="menuitem">
+          <span class="win98-start-menu-item-icon"
+            ><img src="/settings_gear.png" alt="" class="w-5 h-5" /></span
+          >
+          <span class="win98-start-menu-item-text">Settings</span>
         </button>
         <div class="win98-start-menu-divider"></div>
         <button type="button" class="win98-start-menu-item" role="menuitem">
-          <span class="win98-start-menu-item-icon">🔑</span>
-          <span class="win98-start-menu-item-text">Log Off...</span>
+          <span class="win98-start-menu-item-icon"
+            ><img src="/key_win.png" alt="" class="w-5 h-5" /></span
+          >
+          <span class="win98-start-menu-item-text">Log Off sparven704...</span>
         </button>
         <button type="button" class="win98-start-menu-item" role="menuitem">
-          <span class="win98-start-menu-item-icon" style="color: #c00000;"
-            >⏻</span
+          <span class="win98-start-menu-item-icon"
+            ><img src="/shut_down.png" alt="" class="w-5 h-5" /></span
           >
           <span class="win98-start-menu-item-text">Shut Down...</span>
         </button>
