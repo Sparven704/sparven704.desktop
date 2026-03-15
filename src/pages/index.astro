@@ -15,8 +15,19 @@ const base = import.meta.env.BASE_URL;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>sys/init - Loading</title>
+    <link rel="preload" as="video" href={base + "blue_neon_retro.mp4"} type="video/mp4" />
   </head>
   <body class="loading-screen">
+    <!-- Preload background video during loading animation so it's ready on home/resume -->
+    <video
+      preload="auto"
+      muted
+      playsinline
+      aria-hidden="true"
+      style="position: absolute; width: 0; height: 0; opacity: 0; pointer-events: none"
+    >
+      <source src={base + "blue_neon_retro.mp4"} type="video/mp4" />
+    </video>
     <div class="loading-window">
       <div
         class="flex flex-row justify-between items-center bg-[linear-gradient(90deg,navy,#1084d0)] w-full h-6 px-1"
