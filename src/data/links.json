@@ -8,8 +8,8 @@
     }
   ],
   "other": [
-    { "label": "Diary.", "href": "#" },
-    { "label": "RSS", "href": "#" },
-    { "label": "resume.txt", "href": "/resume" }
+    { "label": "Projects", "href": "#" },
+    { "label": "animols", "href": "#" },
+    { "label": ".txt", "href": "/resume" }
   ]
 }

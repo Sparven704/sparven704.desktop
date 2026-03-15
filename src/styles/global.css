@@ -262,14 +262,30 @@ body.win98-desktop {
   font-size: 12px;
 }
 
-.minesweeper-cell .num-1 { color: #0000ff; }
-.minesweeper-cell .num-2 { color: #008000; }
-.minesweeper-cell .num-3 { color: #ff0000; }
-.minesweeper-cell .num-4 { color: #000080; }
-.minesweeper-cell .num-5 { color: #800000; }
-.minesweeper-cell .num-6 { color: #008080; }
-.minesweeper-cell .num-7 { color: #000000; }
-.minesweeper-cell .num-8 { color: #808080; }
+.minesweeper-cell .num-1 {
+  color: #0000ff;
+}
+.minesweeper-cell .num-2 {
+  color: #008000;
+}
+.minesweeper-cell .num-3 {
+  color: #ff0000;
+}
+.minesweeper-cell .num-4 {
+  color: #000080;
+}
+.minesweeper-cell .num-5 {
+  color: #800000;
+}
+.minesweeper-cell .num-6 {
+  color: #008080;
+}
+.minesweeper-cell .num-7 {
+  color: #000000;
+}
+.minesweeper-cell .num-8 {
+  color: #808080;
+}
 
 .minesweeper-play-again-wrap {
   display: none;
@@ -659,6 +675,66 @@ body.win98-desktop {
   text-align: center;
 }
 
+.recycle-bin-btn {
+  border: none;
+  background: transparent;
+  font: inherit;
+  font-size: 11px;
+  color: white;
+  text-align: center;
+}
+
+/* Recycle Bin dialog */
+.recycle-bin-dialog {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.recycle-bin-dialog.open {
+  display: flex;
+}
+
+.recycle-bin-dialog-window {
+  width: 320px;
+  background: var(--win98-bg);
+  border: 2px solid;
+  border-color: var(--win98-border-light) var(--win98-border-dark)
+    var(--win98-border-dark) var(--win98-border-light);
+  box-shadow: 4px 4px 0 0 #000;
+}
+
+.recycle-bin-dialog-content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.recycle-bin-dialog-message {
+  margin: 0;
+  font-size: 13px;
+  color: var(--win98-text);
+  line-height: 1.4;
+  width: 100%;
+}
+
+.recycle-bin-dialog-ok {
+  padding: 4px 20px;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.recycle-bin-dialog-ok:hover {
+  background: #d4d0c8;
+}
+
 .home-links-window {
   display: flex;
   flex-direction: column;
@@ -809,6 +885,61 @@ body.win98-desktop {
   font-size: 12px;
   color: var(--win98-border-dark);
   margin-top: 12px;
+}
+
+/* Note box - protruding/raised 3D style */
+.home-note-box {
+  margin-top: 55px;
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: var(--win98-border-light) var(--win98-border-dark)
+    var(--win98-border-dark) var(--win98-border-light);
+  padding: 14px 12px 12px 12px;
+  padding-top: 26px;
+  position: relative;
+}
+
+.home-note-tab {
+  position: absolute;
+  top: -2px;
+  left: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 8px 4px 6px;
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: var(--win98-border-light) var(--win98-border-dark)
+    var(--win98-border-dark) var(--win98-border-light);
+  border-bottom: none;
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--win98-text);
+}
+
+.home-note-icon {
+  width: 12px;
+  height: 12px;
+  background: white;
+  border: 1px solid var(--win98-border-dark);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.home-note-icon::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  background: var(--win98-border-dark);
+}
+
+.home-note-text {
+  margin: 0;
+  font-size: 13px;
+  color: var(--win98-text);
+  line-height: 1.4;
 }
 
 /* Loading screen - sys/init boot sequence */

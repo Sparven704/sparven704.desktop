@@ -94,7 +94,12 @@ const lastUpdated = new Date().toISOString().split("T")[0];
 
       <!-- Recycle Bin - bottom right corner -->
       <div class="home-desktop-recycle-bin">
-        <span class="home-desktop-icon" title="Recycle Bin">
+        <button
+          type="button"
+          class="home-desktop-icon recycle-bin-btn"
+          title="Recycle Bin"
+          id="recycle-bin-btn"
+        >
           <span class="home-desktop-icon-img">
             <img
               src="/recycle_bin_full-2.png"
@@ -103,7 +108,39 @@ const lastUpdated = new Date().toISOString().split("T")[0];
             />
           </span>
           Recycle Bin
-        </span>
+        </button>
+      </div>
+
+      <!-- Recycle Bin dialog -->
+      <div
+        id="recycle-bin-dialog"
+        class="recycle-bin-dialog"
+        aria-hidden="true"
+      >
+        <div class="recycle-bin-dialog-window">
+          <div
+            class="flex flex-row justify-between items-center bg-[linear-gradient(90deg,navy,#1084d0)] w-full h-6 px-1"
+          >
+            <p class="text-white text-xs font-bold truncate">Recycle Bin</p>
+            <button
+              type="button"
+              class="win95-raised w-4 h-3.5 flex items-center justify-center text-black hover:bg-[#d4d0c8] recycle-bin-dialog-close"
+            >
+              <svg class="win98-close-x" viewBox="0 0 10 10" fill="none">
+                <line x1="1" y1="1" x2="9" y2="9"></line>
+                <line x1="9" y1="1" x2="1" y2="9"></line>
+              </svg>
+            </button>
+          </div>
+          <div class="recycle-bin-dialog-content">
+            <p class="recycle-bin-dialog-message">
+              The recycle bin is full, you should probably look in to that.
+            </p>
+            <button type="button" class="win95-raised recycle-bin-dialog-ok"
+              >OK</button
+            >
+          </div>
+        </div>
       </div>
 
       <!-- Windows container -->
@@ -259,8 +296,8 @@ const lastUpdated = new Date().toISOString().split("T")[0];
                 </p>
                 <p class="home-profile-text">
                   <strong>mostly known for:</strong>
-                  {profile.title}. Full-stack development with .NET, Blazor,
-                  React, and cloud technologies.
+                  {profile.title}. Full-stack development with .NET, Go, React,
+                  Blazor and cloud technologies.
                 </p>
                 <p class="home-profile-text">{profile.summary}</p>
                 <div class="home-links">
@@ -321,6 +358,15 @@ const lastUpdated = new Date().toISOString().split("T")[0];
                   >
                     GitHub
                   </a>
+                </div>
+                <div class="home-note-box">
+                  <div class="home-note-tab">
+                    <span class="home-note-icon"></span>
+                    Note
+                  </div>
+                  <p class="home-note-text">
+                    The best way to reach me is via email
+                  </p>
                 </div>
               </div>
             </section>
@@ -781,6 +827,31 @@ const lastUpdated = new Date().toISOString().split("T")[0];
       minesweeperPlayAgainBtn.addEventListener("click", () => {
         initGame();
         renderGrid();
+      });
+
+      // Recycle Bin dialog
+      const recycleBinBtn = document.getElementById("recycle-bin-btn")!;
+      const recycleBinDialog = document.getElementById("recycle-bin-dialog")!;
+      const recycleBinDialogClose = document.querySelectorAll(
+        ".recycle-bin-dialog-close, .recycle-bin-dialog-ok",
+      );
+
+      function openRecycleBinDialog() {
+        recycleBinDialog.classList.add("open");
+        recycleBinDialog.setAttribute("aria-hidden", "false");
+      }
+
+      function closeRecycleBinDialog() {
+        recycleBinDialog.classList.remove("open");
+        recycleBinDialog.setAttribute("aria-hidden", "true");
+      }
+
+      recycleBinBtn.addEventListener("click", openRecycleBinDialog);
+      recycleBinDialogClose.forEach((el) =>
+        el.addEventListener("click", closeRecycleBinDialog),
+      );
+      recycleBinDialog.addEventListener("click", (e) => {
+        if (e.target === recycleBinDialog) closeRecycleBinDialog();
       });
 
       minesweeperIcon.addEventListener("click", openMinesweeper);
