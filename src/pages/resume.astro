@@ -4,13 +4,15 @@ import education from "../data/education.json";
 import experience from "../data/experience.json";
 import skills from "../data/skills.json";
 import "../styles/global.css";
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href={base + "favicon.svg"} />
+    <link rel="icon" href={base + "favicon.ico"} />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Arvid - Resume</title>
@@ -24,7 +26,7 @@ import "../styles/global.css";
       playsinline
       aria-hidden="true"
     >
-      <source src="/blue_neon_retro.mp4" type="video/mp4" />
+      <source src={base + "blue_neon_retro.mp4"} type="video/mp4" />
     </video>
     <main
       class="flex flex-col justify-start items-center container bg-[#c0c0c0] max-w-3xl mt-10 mx-10 mb-10 border-2 border-black border-t-[#dfdfdf] border-l-[#dfdfdf] shadow-[4px_4px_0_0_#000]"
@@ -65,13 +67,13 @@ import "../styles/global.css";
       <!-- Navigation buttons -->
       <div class="flex gap-2 p-2 bg-[#c0c0c0] w-full">
         <a
-          href="/home"
+          href={base + "home"}
           class="win95-raised px-3 py-1 text-sm font-normal text-black no-underline hover:bg-[#d4d0c8]"
         >
           ← back
         </a>
         <a
-          href="/home"
+          href={base + "home"}
           class="win95-raised px-3 py-1 text-sm font-normal text-black no-underline hover:bg-[#d4d0c8]"
         >
           home
@@ -204,7 +206,7 @@ import "../styles/global.css";
         aria-haspopup="true"
       >
         <img
-          src="/windows-0.png"
+          src={base + "windows-0.png"}
           alt="Windows 98"
           class="w-5 h-5 shrink-0 object-contain -ml-0.5"
         />
@@ -224,20 +226,20 @@ import "../styles/global.css";
         <span class="win98-start-menu-branding">Windows98</span>
       </div>
       <div class="win98-start-menu-content">
-        <a href="/home" class="win98-start-menu-item" role="menuitem">
+        <a href={base + "home"} class="win98-start-menu-item" role="menuitem">
           <span class="win98-start-menu-item-icon"
             ><img
-              src="/computer_explorer_cool-0.png"
+              src={base + "computer_explorer_cool-0.png"}
               alt="Windows Computer Image"
               class="w-5 h-5"
             /></span
           >
           <span class="win98-start-menu-item-text">Home</span>
         </a>
-        <a href="/resume" class="win98-start-menu-item" role="menuitem">
+        <a href={base + "resume"} class="win98-start-menu-item" role="menuitem">
           <span class="win98-start-menu-item-icon"
             ><img
-              src="/folder.png"
+              src={base + "folder.png"}
               alt="Windows Computer Image"
               class="w-5 h-5"
             /></span
@@ -252,46 +254,46 @@ import "../styles/global.css";
           rel="noopener noreferrer"
         >
           <span class="win98-start-menu-item-icon"
-            ><img src="/console_prompt-0.png" alt="" class="w-5 h-5" /></span
+            ><img src={base + "console_prompt-0.png"} alt="" class="w-5 h-5" /></span
           >
           <span class="win98-start-menu-item-text">Terminal</span>
         </a>
         <button type="button" class="win98-start-menu-item" role="menuitem">
           <span class="win98-start-menu-item-icon"
-            ><img src="/directory_favorites.png" alt="" class="w-5 h-5" /></span
+            ><img src={base + "directory_favorites.png"} alt="" class="w-5 h-5" /></span
           >
           <span class="win98-start-menu-item-text">Favorites</span>
           <span class="win98-start-menu-item-arrow">›</span>
         </button>
         <button type="button" class="win98-start-menu-item" role="menuitem">
           <span class="win98-start-menu-item-icon"
-            ><img src="/search_file.png" alt="" class="w-5 h-5" /></span
+            ><img src={base + "search_file.png"} alt="" class="w-5 h-5" /></span
           >
           <span class="win98-start-menu-item-text">Find</span>
           <span class="win98-start-menu-item-arrow">›</span>
         </button>
         <button type="button" class="win98-start-menu-item" role="menuitem">
           <span class="win98-start-menu-item-icon"
-            ><img src="/help_book.png" alt="" class="w-5 h-5" /></span
+            ><img src={base + "help_book.png"} alt="" class="w-5 h-5" /></span
           >
           <span class="win98-start-menu-item-text">Help</span>
         </button>
         <button type="button" class="win98-start-menu-item" role="menuitem">
           <span class="win98-start-menu-item-icon"
-            ><img src="/settings_gear.png" alt="" class="w-5 h-5" /></span
+            ><img src={base + "settings_gear.png"} alt="" class="w-5 h-5" /></span
           >
           <span class="win98-start-menu-item-text">Settings</span>
         </button>
         <div class="win98-start-menu-divider"></div>
         <button type="button" class="win98-start-menu-item" id="logoff-btn" role="menuitem">
           <span class="win98-start-menu-item-icon"
-            ><img src="/key_win.png" alt="" class="w-5 h-5" /></span
+            ><img src={base + "key_win.png"} alt="" class="w-5 h-5" /></span
           >
           <span class="win98-start-menu-item-text">Log Off sparven704...</span>
         </button>
         <button type="button" class="win98-start-menu-item" role="menuitem">
           <span class="win98-start-menu-item-icon"
-            ><img src="/shut_down.png" alt="" class="w-5 h-5" /></span
+            ><img src={base + "shut_down.png"} alt="" class="w-5 h-5" /></span
           >
           <span class="win98-start-menu-item-text">Shut Down...</span>
         </button>
