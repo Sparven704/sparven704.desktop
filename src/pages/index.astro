@@ -56,7 +56,9 @@ const base = import.meta.env.BASE_URL;
       </div>
       <div class="loading-content">
         <div id="loading-steps"></div>
-        <a href={base + "home"} class="loading-continue-btn win95-raised"> continue </a>
+        <button type="button" id="loading-continue-btn" class="loading-continue-btn win95-raised">
+          continue
+        </button>
       </div>
     </div>
 
@@ -110,6 +112,17 @@ const base = import.meta.env.BASE_URL;
       }
 
       runLoading();
+
+      document.getElementById("loading-continue-btn")!.addEventListener("click", () => {
+        sessionStorage.setItem("sparven704_loadingSeen", "true");
+        const params = new URLSearchParams(window.location.search);
+        const returnTo = params.get("return");
+        const base = window.location.pathname.includes("/sparven704.desktop")
+          ? "/sparven704.desktop/"
+          : "/";
+        const target = returnTo === "resume" ? base + "resume" : base + "home";
+        window.location.href = target;
+      });
     </script>
   </body>
 </html>

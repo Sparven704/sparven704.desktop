@@ -19,6 +19,12 @@ const lastUpdated = new Date().toISOString().split("T")[0];
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>sparven704.desktop</title>
+    <script is:inline>
+      if (!sessionStorage.getItem("sparven704_loadingSeen")) {
+        const base = window.location.pathname.includes("/sparven704.desktop") ? "/sparven704.desktop/" : "/";
+        window.location.replace(window.location.origin + base + "?return=home");
+      }
+    </script>
   </head>
   <body class="home-desktop pb-7.5">
     <video

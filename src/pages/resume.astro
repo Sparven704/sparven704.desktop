@@ -16,6 +16,12 @@ const base = import.meta.env.BASE_URL;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Arvid - Resume</title>
+    <script is:inline>
+      if (!sessionStorage.getItem("sparven704_loadingSeen")) {
+        const base = window.location.pathname.includes("/sparven704.desktop") ? "/sparven704.desktop/" : "/";
+        window.location.replace(window.location.origin + base + "?return=resume");
+      }
+    </script>
   </head>
   <body class="home-desktop flex flex-col items-center min-h-screen pb-7.5">
     <video
