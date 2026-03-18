@@ -22,8 +22,12 @@ const base = import.meta.env.BASE_URL;
     <title>Arvid - Resume</title>
     <script is:inline>
       if (!sessionStorage.getItem("sparven704_loadingSeen")) {
-        const base = window.location.pathname.includes("/sparven704.desktop") ? "/sparven704.desktop/" : "/";
-        window.location.replace(window.location.origin + base + "?return=resume");
+        const base = window.location.pathname.includes("/sparven704.desktop")
+          ? "/sparven704.desktop/"
+          : "/";
+        window.location.replace(
+          window.location.origin + base + "?return=resume",
+        );
       }
     </script>
   </head>
@@ -90,7 +94,7 @@ const base = import.meta.env.BASE_URL;
         </a>
       </div>
 
-      <!-- Main content area - professional CV in Windows 98 style -->
+      <!-- Main content area -->
       <section
         class="main-content m-2 p-4 pt-2 w-[calc(100%-1rem)] bg-[#D4D0C8]"
       >
@@ -101,6 +105,10 @@ const base = import.meta.env.BASE_URL;
           <div class="win95-inset p-2 w-full">
             <p class="cv-contact">
               {profile.contact.email} · {profile.contact.location}
+            </p>
+            <p class="cv-contact">
+              Swe Mobile: {profile.contact.phone1} · Cyprus Mobile:
+              {profile.contact.phone2}
             </p>
             <div class="flex gap-2 mt-2 flex-wrap">
               <a
@@ -264,13 +272,21 @@ const base = import.meta.env.BASE_URL;
           rel="noopener noreferrer"
         >
           <span class="win98-start-menu-item-icon"
-            ><img src={base + "console_prompt-0.png"} alt="" class="w-5 h-5" /></span
+            ><img
+              src={base + "console_prompt-0.png"}
+              alt=""
+              class="w-5 h-5"
+            /></span
           >
           <span class="win98-start-menu-item-text">Terminal</span>
         </a>
         <button type="button" class="win98-start-menu-item" role="menuitem">
           <span class="win98-start-menu-item-icon"
-            ><img src={base + "directory_favorites.png"} alt="" class="w-5 h-5" /></span
+            ><img
+              src={base + "directory_favorites.png"}
+              alt=""
+              class="w-5 h-5"
+            /></span
           >
           <span class="win98-start-menu-item-text">Favorites</span>
           <span class="win98-start-menu-item-arrow">›</span>
@@ -290,12 +306,21 @@ const base = import.meta.env.BASE_URL;
         </button>
         <button type="button" class="win98-start-menu-item" role="menuitem">
           <span class="win98-start-menu-item-icon"
-            ><img src={base + "settings_gear.png"} alt="" class="w-5 h-5" /></span
+            ><img
+              src={base + "settings_gear.png"}
+              alt=""
+              class="w-5 h-5"
+            /></span
           >
           <span class="win98-start-menu-item-text">Settings</span>
         </button>
         <div class="win98-start-menu-divider"></div>
-        <button type="button" class="win98-start-menu-item" id="logoff-btn" role="menuitem">
+        <button
+          type="button"
+          class="win98-start-menu-item"
+          id="logoff-btn"
+          role="menuitem"
+        >
           <span class="win98-start-menu-item-icon"
             ><img src={base + "key_win.png"} alt="" class="w-5 h-5" /></span
           >

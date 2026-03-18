@@ -9,6 +9,7 @@ const lastUpdated = new Date().toISOString().split("T")[0];
 
 <html lang="en">
   <head>
+    <base href={base} />
     <meta charset="utf-8" />
     <link
       rel="icon"
@@ -19,12 +20,6 @@ const lastUpdated = new Date().toISOString().split("T")[0];
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>sparven704.desktop</title>
-    <script is:inline>
-      if (!sessionStorage.getItem("sparven704_loadingSeen")) {
-        const base = window.location.pathname.includes("/sparven704.desktop") ? "/sparven704.desktop/" : "/";
-        window.location.replace(window.location.origin + base + "?return=home");
-      }
-    </script>
   </head>
   <body class="home-desktop pb-7.5">
     <video
@@ -186,7 +181,11 @@ const lastUpdated = new Date().toISOString().split("T")[0];
             {
               links.files.map((link) => (
                 <a
-                  href={link.href.startsWith("/") ? base + link.href.slice(1) : link.href}
+                  href={
+                    link.href.startsWith("/")
+                      ? base + link.href.slice(1)
+                      : link.href
+                  }
                   class="home-links-item"
                   target={link.href.startsWith("http") ? "_blank" : undefined}
                   rel={
@@ -218,7 +217,11 @@ const lastUpdated = new Date().toISOString().split("T")[0];
             {
               links.other.map((link) => (
                 <a
-                  href={link.href.startsWith("/") ? base + link.href.slice(1) : link.href}
+                  href={
+                    link.href.startsWith("/")
+                      ? base + link.href.slice(1)
+                      : link.href
+                  }
                   class="home-links-item"
                   target={link.href.startsWith("http") ? "_blank" : undefined}
                   rel={
@@ -287,22 +290,35 @@ const lastUpdated = new Date().toISOString().split("T")[0];
           <!-- Content -->
           <div class="home-window-content">
             <section class="home-tab-content active" id="tab-about">
-              <div class="home-profile-section">
-                <h2 class="home-section-title">
+              <pre
+                class="ascii-art">
+          ██████   ▓█████    ▄▄▄       ██▀███   ██▒   █▓▓█████  ███▄    █ 
+         ▒██    ▒  ▓██░  ██▒▒████▄    ▓██ ▒ ██▒▓██░   █▒▓█   ▀  ██ ▀█   █ 
+          ░ ▓██▄   ▓██░ ██▓▒▒██  ▀█▄  ▓██ ░▄█ ▒ ▓██  █▒░▒███   ▓██  ▀█ ██▒
+            ▒   ██▒▒██▄█▓▒ ▒░██▄▄▄▄██ ▒██▀▀█▄    ▒██ █░░▒▓█  ▄ ▓██▒  ▐▌██▒
+          ▒██████▒▒▒██▒ ░  ░ ▓█   ▓██▒░██▓ ▒██▒   ▒▀█░  ░▒████▒▒██░   ▓██░
+          ▒ ▒▓▒ ▒ ░▒▓▒░ ░  ░ ▒▒   ▓▒█░░ ▒▓ ░▒▓░   ░ ▐░  ░░ ▒░ ░░ ▒░   ▒ ▒ 
+          ░ ░▒  ░ ░░▒ ░       ▒   ▒▒░   ░▒ ░ ▒░   ░ ░░   ░ ░  ░░ ░░   ░ ▒░
+            ░   ░  ░  ░░          ░     ░░   ░    ░░     ░    ░      ░ ░ 
+            ░                     ░          ░     ░     ░    ░ 
+                                             ░                     
+              </pre>
+              <fieldset class="win98-group">
+                <legend class="win98-legend">
                   <span
                     ><img
                       src={base + "file_question.png"}
-                      alt="Profile"
-                      class="w-5 h-5"
+                      alt="Profile image"
+                      class="w-5 h-5 win98-legend-icon"
                     /></span
-                  > Profile
-                </h2>
+                  >Profile
+                </legend>
                 <p class="home-profile-text">
                   <strong>handle:</strong>
                   Sparven704
                 </p>
                 <p class="home-profile-text">
-                  <strong>mostly known for:</strong>
+                  <strong>About me:</strong>
                   {profile.title}. Full-stack development with .NET, Go, React,
                   Blazor and cloud technologies.
                 </p>
@@ -325,8 +341,8 @@ const lastUpdated = new Date().toISOString().split("T")[0];
                     linkedin
                   </a>
                 </div>
-                <p class="home-updated">last updated: {lastUpdated}</p>
-              </div>
+              </fieldset>
+              <p class="home-updated">last updated: {lastUpdated}</p>
             </section>
 
             <section class="home-tab-content" id="tab-contact">
@@ -366,511 +382,551 @@ const lastUpdated = new Date().toISOString().split("T")[0];
                     GitHub
                   </a>
                 </div>
-                <div class="home-note-box">
-                  <div class="home-note-tab">
-                    <span class="home-note-icon"></span>
-                    Note
+                <fieldset class="win98-group mt-3">
+                  <legend class="win98-legend">
+                    <span
+                      ><img
+                        src={base + "msg_information.png"}
+                        alt="Contact"
+                        class="w-5 h-5 win98-legend-icon"
+                      /></span
+                    >Note</legend
+                  >
+                  <div class="p-2">
+                    <p class="home-note-text">
+                      The best way to reach me is via email
+                    </p>
                   </div>
-                  <p class="home-note-text">
-                    The best way to reach me is via email
-                  </p>
-                </div>
+                </fieldset>
               </div>
             </section>
           </div>
         </div>
-      </div>
 
-      <!-- Minesweeper window -->
-      <div
-        id="minesweeper-window"
-        class="minesweeper-window"
-        aria-hidden="true"
-      >
+        <!-- Minesweeper window -->
         <div
-          class="flex flex-row justify-between items-center bg-[linear-gradient(90deg,navy,#1084d0)] w-full h-6 px-1"
+          id="minesweeper-window"
+          class="minesweeper-window"
+          aria-hidden="true"
         >
-          <p class="text-white text-xs font-bold truncate">Minesweeper</p>
-          <div class="flex gap-0.5 shrink-0">
-            <button
-              class="win95-raised w-4 h-3.5 flex items-center justify-center text-black hover:bg-[#d4d0c8]"
-            >
-              <div class="w-2 h-0.5 bg-black"></div>
-            </button>
-            <button
-              class="win95-raised w-4 h-3.5 flex items-center justify-center text-black hover:bg-[#d4d0c8]"
-            >
-              <div class="w-2 h-2 border border-black"></div>
-            </button>
-            <button
-              type="button"
-              class="win95-raised w-4 h-3.5 flex items-center justify-center text-black hover:bg-[#d4d0c8] minesweeper-close-btn"
-            >
-              <svg class="win98-close-x" viewBox="0 0 10 10" fill="none">
-                <line x1="1" y1="1" x2="9" y2="9"></line>
-                <line x1="9" y1="1" x2="1" y2="9"></line>
-              </svg>
-            </button>
-          </div>
-        </div>
-        <div class="minesweeper-content">
-          <div class="minesweeper-toolbar">
-            <div class="minesweeper-counter" id="minesweeper-mines">010</div>
-            <button
-              type="button"
-              class="minesweeper-face"
-              id="minesweeper-face"
-              aria-label="New game"
-            >
-              🙂
-            </button>
-            <div class="minesweeper-counter" id="minesweeper-timer">000</div>
-          </div>
-          <div class="minesweeper-grid" id="minesweeper-grid"></div>
           <div
-            class="minesweeper-play-again-wrap"
-            id="minesweeper-play-again-wrap"
+            class="flex flex-row justify-between items-center bg-[linear-gradient(90deg,navy,#1084d0)] w-full h-6 px-1"
           >
-            <button
-              type="button"
-              class="win95-raised minesweeper-play-again"
-              id="minesweeper-play-again"
+            <p class="text-white text-xs font-bold truncate">Minesweeper</p>
+            <div class="flex gap-0.5 shrink-0">
+              <button
+                class="win95-raised w-4 h-3.5 flex items-center justify-center text-black hover:bg-[#d4d0c8]"
+              >
+                <div class="w-2 h-0.5 bg-black"></div>
+              </button>
+              <button
+                class="win95-raised w-4 h-3.5 flex items-center justify-center text-black hover:bg-[#d4d0c8]"
+              >
+                <div class="w-2 h-2 border border-black"></div>
+              </button>
+              <button
+                type="button"
+                class="win95-raised w-4 h-3.5 flex items-center justify-center text-black hover:bg-[#d4d0c8] minesweeper-close-btn"
+              >
+                <svg class="win98-close-x" viewBox="0 0 10 10" fill="none">
+                  <line x1="1" y1="1" x2="9" y2="9"></line>
+                  <line x1="9" y1="1" x2="1" y2="9"></line>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="minesweeper-content">
+            <div class="minesweeper-toolbar">
+              <div class="minesweeper-counter" id="minesweeper-mines">010</div>
+              <button
+                type="button"
+                class="minesweeper-face"
+                id="minesweeper-face"
+                aria-label="New game"
+              >
+                🙂
+              </button>
+              <div class="minesweeper-counter" id="minesweeper-timer">000</div>
+            </div>
+            <div class="minesweeper-grid" id="minesweeper-grid"></div>
+            <div
+              class="minesweeper-play-again-wrap"
+              id="minesweeper-play-again-wrap"
             >
-              Play again
-            </button>
+              <button
+                type="button"
+                class="win95-raised minesweeper-play-again"
+                id="minesweeper-play-again"
+              >
+                Play again
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Windows 98 taskbar -->
-    <footer class="win98-taskbar">
-      <button
-        type="button"
-        id="start-btn"
-        class="win98-raised win98-start-btn text-black overflow-visible ml-1"
-        aria-expanded="false"
-        aria-haspopup="true"
-      >
-        <img
-          src={base + "windows-0.png"}
-          alt="Windows 98"
-          class="w-5 h-5 shrink-0 object-contain -ml-0.5"
-        />
-        Start
-      </button>
-      <div class="win98-taskbar-window">sparven704.desktop</div>
-      <button
-        type="button"
-        class="win98-taskbar-btn minesweeper-taskbar-btn"
-        id="minesweeper-taskbar-btn"
-        aria-label="Minesweeper"
-      >
-        Minesweeper
-      </button>
-    </footer>
-
-    <!-- Windows 98 start menu -->
-    <div
-      id="start-menu"
-      class="win98-start-menu"
-      role="menu"
-      aria-label="Start menu"
-    >
-      <div class="win98-start-menu-sidebar">
-        <span class="win98-start-menu-branding">Windows98</span>
-      </div>
-      <div class="win98-start-menu-content">
-        <a href={base + "home"} class="win98-start-menu-item" role="menuitem">
-          <span class="win98-start-menu-item-icon"
-            ><img
-              src={base + "computer_explorer_cool-0.png"}
-              alt="Windows Computer Image"
-              class="w-5 h-5"
-            /></span
-          >
-          <span class="win98-start-menu-item-text">Home</span>
-        </a>
-        <a href={base + "resume"} class="win98-start-menu-item" role="menuitem">
-          <span class="win98-start-menu-item-icon"
-            ><img
-              src={base + "folder.png"}
-              alt="Windows Computer Image"
-              class="w-5 h-5"
-            /></span
-          >
-          <span class="win98-start-menu-item-text">Resume</span>
-        </a>
-        <a
-          href={profile.contact.github}
-          class="win98-start-menu-item"
-          role="menuitem"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span class="win98-start-menu-item-icon"
-            ><img src={base + "console_prompt-0.png"} alt="" class="w-5 h-5" /></span
-          >
-          <span class="win98-start-menu-item-text">Terminal</span>
-        </a>
-        <button type="button" class="win98-start-menu-item" role="menuitem">
-          <span class="win98-start-menu-item-icon"
-            ><img src={base + "directory_favorites.png"} alt="" class="w-5 h-5" /></span
-          >
-          <span class="win98-start-menu-item-text">Favorites</span>
-          <span class="win98-start-menu-item-arrow">›</span>
-        </button>
-        <button type="button" class="win98-start-menu-item" role="menuitem">
-          <span class="win98-start-menu-item-icon"
-            ><img src={base + "search_file.png"} alt="" class="w-5 h-5" /></span
-          >
-          <span class="win98-start-menu-item-text">Find</span>
-          <span class="win98-start-menu-item-arrow">›</span>
-        </button>
-        <button type="button" class="win98-start-menu-item" role="menuitem">
-          <span class="win98-start-menu-item-icon"
-            ><img src={base + "help_book.png"} alt="" class="w-5 h-5" /></span
-          >
-          <span class="win98-start-menu-item-text">Help</span>
-        </button>
-        <button type="button" class="win98-start-menu-item" role="menuitem">
-          <span class="win98-start-menu-item-icon"
-            ><img src={base + "settings_gear.png"} alt="" class="w-5 h-5" /></span
-          >
-          <span class="win98-start-menu-item-text">Settings</span>
-        </button>
-        <div class="win98-start-menu-divider"></div>
+      <!-- Windows 98 taskbar -->
+      <footer class="win98-taskbar">
         <button
           type="button"
-          class="win98-start-menu-item"
-          id="logoff-btn"
-          role="menuitem"
+          id="start-btn"
+          class="win98-raised win98-start-btn text-black overflow-visible ml-1"
+          aria-expanded="false"
+          aria-haspopup="true"
         >
-          <span class="win98-start-menu-item-icon"
-            ><img src={base + "key_win.png"} alt="" class="w-5 h-5" /></span
-          >
-          <span class="win98-start-menu-item-text">Log Off sparven704...</span>
+          <img
+            src={base + "windows-0.png"}
+            alt="Windows 98"
+            class="w-5 h-5 shrink-0 object-contain -ml-0.5"
+          />
+          Start
         </button>
-        <button type="button" class="win98-start-menu-item" role="menuitem">
-          <span class="win98-start-menu-item-icon"
-            ><img src={base + "shut_down.png"} alt="" class="w-5 h-5" /></span
-          >
-          <span class="win98-start-menu-item-text">Shut Down...</span>
+        <div class="win98-taskbar-window">sparven704.desktop</div>
+        <button
+          type="button"
+          class="win98-taskbar-btn minesweeper-taskbar-btn"
+          id="minesweeper-taskbar-btn"
+          aria-label="Minesweeper"
+        >
+          Minesweeper
         </button>
+      </footer>
+
+      <!-- Windows 98 start menu -->
+      <div
+        id="start-menu"
+        class="win98-start-menu"
+        role="menu"
+        aria-label="Start menu"
+      >
+        <div class="win98-start-menu-sidebar">
+          <span class="win98-start-menu-branding">Windows98</span>
+        </div>
+        <div class="win98-start-menu-content">
+          <a href={base + "home"} class="win98-start-menu-item" role="menuitem">
+            <span class="win98-start-menu-item-icon"
+              ><img
+                src={base + "computer_explorer_cool-0.png"}
+                alt="Windows Computer Image"
+                class="w-5 h-5"
+              /></span
+            >
+            <span class="win98-start-menu-item-text">Home</span>
+          </a>
+          <a
+            href={base + "resume"}
+            class="win98-start-menu-item"
+            role="menuitem"
+          >
+            <span class="win98-start-menu-item-icon"
+              ><img
+                src={base + "folder.png"}
+                alt="Windows Computer Image"
+                class="w-5 h-5"
+              /></span
+            >
+            <span class="win98-start-menu-item-text">Resume</span>
+          </a>
+          <a
+            href={profile.contact.github}
+            class="win98-start-menu-item"
+            role="menuitem"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="win98-start-menu-item-icon"
+              ><img
+                src={base + "console_prompt-0.png"}
+                alt=""
+                class="w-5 h-5"
+              /></span
+            >
+            <span class="win98-start-menu-item-text">Terminal</span>
+          </a>
+          <button type="button" class="win98-start-menu-item" role="menuitem">
+            <span class="win98-start-menu-item-icon"
+              ><img
+                src={base + "directory_favorites.png"}
+                alt=""
+                class="w-5 h-5"
+              /></span
+            >
+            <span class="win98-start-menu-item-text">Favorites</span>
+            <span class="win98-start-menu-item-arrow">›</span>
+          </button>
+          <button type="button" class="win98-start-menu-item" role="menuitem">
+            <span class="win98-start-menu-item-icon"
+              ><img
+                src={base + "search_file.png"}
+                alt=""
+                class="w-5 h-5"
+              /></span
+            >
+            <span class="win98-start-menu-item-text">Find</span>
+            <span class="win98-start-menu-item-arrow">›</span>
+          </button>
+          <button type="button" class="win98-start-menu-item" role="menuitem">
+            <span class="win98-start-menu-item-icon"
+              ><img src={base + "help_book.png"} alt="" class="w-5 h-5" /></span
+            >
+            <span class="win98-start-menu-item-text">Help</span>
+          </button>
+          <button type="button" class="win98-start-menu-item" role="menuitem">
+            <span class="win98-start-menu-item-icon"
+              ><img
+                src={base + "settings_gear.png"}
+                alt=""
+                class="w-5 h-5"
+              /></span
+            >
+            <span class="win98-start-menu-item-text">Settings</span>
+          </button>
+          <div class="win98-start-menu-divider"></div>
+          <button
+            type="button"
+            class="win98-start-menu-item"
+            id="logoff-btn"
+            role="menuitem"
+          >
+            <span class="win98-start-menu-item-icon"
+              ><img src={base + "key_win.png"} alt="" class="w-5 h-5" /></span
+            >
+            <span class="win98-start-menu-item-text">Log Off sparven704...</span
+            >
+          </button>
+          <button type="button" class="win98-start-menu-item" role="menuitem">
+            <span class="win98-start-menu-item-icon"
+              ><img src={base + "shut_down.png"} alt="" class="w-5 h-5" /></span
+            >
+            <span class="win98-start-menu-item-text">Shut Down...</span>
+          </button>
+        </div>
       </div>
-    </div>
 
-    <script>
-      const startBtn = document.getElementById("start-btn")!;
-      const startMenu = document.getElementById("start-menu")!;
+      <script>
+        const startBtn = document.getElementById("start-btn")!;
+        const startMenu = document.getElementById("start-menu")!;
 
-      function toggleStartMenu() {
-        const isOpen = startMenu.classList.toggle("open");
-        startBtn.classList.toggle("pressed", isOpen);
-        startBtn.setAttribute("aria-expanded", String(isOpen));
-      }
+        function toggleStartMenu() {
+          const isOpen = startMenu.classList.toggle("open");
+          startBtn.classList.toggle("pressed", isOpen);
+          startBtn.setAttribute("aria-expanded", String(isOpen));
+        }
 
-      function closeStartMenu() {
-        startMenu.classList.remove("open");
-        startBtn.classList.remove("pressed");
-        startBtn.setAttribute("aria-expanded", "false");
-      }
+        function closeStartMenu() {
+          startMenu.classList.remove("open");
+          startBtn.classList.remove("pressed");
+          startBtn.setAttribute("aria-expanded", "false");
+        }
 
-      startBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        toggleStartMenu();
-      });
+        startBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          toggleStartMenu();
+        });
 
-      document.addEventListener("click", () => closeStartMenu());
-      startMenu.addEventListener("click", (e) => e.stopPropagation());
+        document.addEventListener("click", () => closeStartMenu());
+        startMenu.addEventListener("click", (e) => e.stopPropagation());
 
-      document.getElementById("logoff-btn")!.addEventListener("click", () => {
-        closeStartMenu();
-        document.body.classList.add("logoff-invert");
-        setTimeout(() => document.body.classList.remove("logoff-invert"), 3000);
-      });
+        document.getElementById("logoff-btn")!.addEventListener("click", () => {
+          closeStartMenu();
+          document.body.classList.add("logoff-invert");
+          setTimeout(
+            () => document.body.classList.remove("logoff-invert"),
+            3000,
+          );
+        });
 
-      function showTab(tabId: string) {
-        document
-          .querySelectorAll(".home-tab-content")
-          .forEach((el) => el.classList.remove("active"));
+        function showTab(tabId: string) {
+          document
+            .querySelectorAll(".home-tab-content")
+            .forEach((el) => el.classList.remove("active"));
+          document
+            .querySelectorAll(".home-window-tab[data-tab]")
+            .forEach((el) => el.classList.remove("active"));
+          const content = document.getElementById(`tab-${tabId}`);
+          const tab = document.querySelector(
+            `.home-window-tab[data-tab="${tabId}"]`,
+          );
+          if (content) content.classList.add("active");
+          if (tab) tab.classList.add("active");
+
+          const base =
+            document.querySelector("base")?.getAttribute("href") || "/";
+
+          history.replaceState(
+            null,
+            "",
+            base + (tabId === "contact" ? "home#contact" : "home"),
+          );
+        }
+
         document
           .querySelectorAll(".home-window-tab[data-tab]")
-          .forEach((el) => el.classList.remove("active"));
-        const content = document.getElementById(`tab-${tabId}`);
-        const tab = document.querySelector(
-          `.home-window-tab[data-tab="${tabId}"]`,
-        );
-        if (content) content.classList.add("active");
-        if (tab) tab.classList.add("active");
-        history.replaceState(
-          null,
-          "",
-          tabId === "contact" ? "/home#contact" : "/home",
-        );
-      }
-
-      document.querySelectorAll(".home-window-tab[data-tab]").forEach((tab) => {
-        tab.addEventListener("click", () => {
-          const tabId = tab.getAttribute("data-tab");
-          if (tabId) showTab(tabId);
-        });
-      });
-
-      if (window.location.hash === "#contact") {
-        showTab("contact");
-      } else {
-        showTab("about");
-      }
-
-      // Minesweeper
-      const ROWS = 9;
-      const COLS = 9;
-      const MINES = 10;
-
-      const minesweeperIcon = document.getElementById("minesweeper-icon")!;
-      const minesweeperWindow = document.getElementById("minesweeper-window")!;
-      const minesweeperCloseBtn = document.querySelector(
-        ".minesweeper-close-btn",
-      )!;
-      const minesweeperTaskbarBtn = document.getElementById(
-        "minesweeper-taskbar-btn",
-      )!;
-      const minesweeperGrid = document.getElementById("minesweeper-grid")!;
-      const minesweeperFace = document.getElementById("minesweeper-face")!;
-      const minesweeperMinesEl = document.getElementById("minesweeper-mines")!;
-      const minesweeperTimerEl = document.getElementById("minesweeper-timer")!;
-      const minesweeperPlayAgainWrap = document.getElementById(
-        "minesweeper-play-again-wrap",
-      )!;
-      const minesweeperPlayAgainBtn = document.getElementById(
-        "minesweeper-play-again",
-      )!;
-
-      let grid: number[][] = [];
-      let revealed: boolean[][] = [];
-      let flagged: boolean[][] = [];
-      let gameOver = false;
-      let timerInterval: number | null = null;
-      let seconds = 0;
-      let flagsLeft = MINES;
-
-      function initGame() {
-        grid = [];
-        revealed = [];
-        flagged = [];
-        gameOver = false;
-        flagsLeft = MINES;
-        seconds = 0;
-        if (timerInterval) clearInterval(timerInterval);
-        timerInterval = null;
-        minesweeperMinesEl.textContent = String(flagsLeft).padStart(3, "0");
-        minesweeperTimerEl.textContent = "000";
-        minesweeperFace.textContent = "🙂";
-        updatePlayAgainVisibility();
-
-        const positions: [number, number][] = [];
-        for (let r = 0; r < ROWS; r++) {
-          for (let c = 0; c < COLS; c++) positions.push([r, c]);
-        }
-        for (let i = positions.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [positions[i], positions[j]] = [positions[j], positions[i]];
-        }
-        for (let r = 0; r < ROWS; r++) {
-          grid[r] = [];
-          revealed[r] = [];
-          flagged[r] = [];
-          for (let c = 0; c < COLS; c++) {
-            grid[r][c] = 0;
-            revealed[r][c] = false;
-            flagged[r][c] = false;
-          }
-        }
-        for (let i = 0; i < MINES; i++) {
-          const [r, c] = positions[i];
-          grid[r][c] = -1;
-        }
-        for (let r = 0; r < ROWS; r++) {
-          for (let c = 0; c < COLS; c++) {
-            if (grid[r][c] === -1) continue;
-            let count = 0;
-            for (let dr = -1; dr <= 1; dr++) {
-              for (let dc = -1; dc <= 1; dc++) {
-                const nr = r + dr,
-                  nc = c + dc;
-                if (
-                  nr >= 0 &&
-                  nr < ROWS &&
-                  nc >= 0 &&
-                  nc < COLS &&
-                  grid[nr][nc] === -1
-                )
-                  count++;
-              }
-            }
-            grid[r][c] = count;
-          }
-        }
-      }
-
-      function renderGrid() {
-        minesweeperGrid.innerHTML = "";
-        for (let r = 0; r < ROWS; r++) {
-          for (let c = 0; c < COLS; c++) {
-            const cell = document.createElement("button");
-            cell.type = "button";
-            cell.className = "minesweeper-cell";
-            cell.dataset.row = String(r);
-            cell.dataset.col = String(c);
-            if (revealed[r][c]) {
-              cell.classList.add("revealed");
-              if (grid[r][c] === -1) {
-                cell.classList.add("mine");
-                cell.textContent = "💣";
-              } else if (grid[r][c] > 0) {
-                const span = document.createElement("span");
-                span.className = `num-${grid[r][c]}`;
-                span.textContent = String(grid[r][c]);
-                cell.appendChild(span);
-              }
-            } else if (flagged[r][c]) {
-              cell.classList.add("flagged");
-            }
-            cell.addEventListener("click", () => handleClick(r, c));
-            cell.addEventListener("contextmenu", (e) => {
-              e.preventDefault();
-              handleRightClick(r, c);
+          .forEach((tab) => {
+            tab.addEventListener("click", () => {
+              const tabId = tab.getAttribute("data-tab");
+              if (tabId) showTab(tabId);
             });
-            minesweeperGrid.appendChild(cell);
-          }
+          });
+
+        if (window.location.hash === "#contact") {
+          showTab("contact");
+        } else {
+          showTab("about");
         }
-      }
 
-      function startTimer() {
-        if (timerInterval) return;
-        timerInterval = window.setInterval(() => {
-          seconds++;
-          minesweeperTimerEl.textContent = String(seconds).padStart(3, "0");
-        }, 1000);
-      }
+        // Minesweeper
+        const ROWS = 9;
+        const COLS = 9;
+        const MINES = 10;
 
-      function handleClick(r: number, c: number) {
-        if (gameOver || revealed[r][c] || flagged[r][c]) return;
-        startTimer();
-        if (grid[r][c] === -1) {
-          gameOver = true;
-          minesweeperFace.textContent = "💀";
-          for (let rr = 0; rr < ROWS; rr++) {
-            for (let cc = 0; cc < COLS; cc++) {
-              if (grid[rr][cc] === -1) revealed[rr][cc] = true;
+        const minesweeperIcon = document.getElementById("minesweeper-icon")!;
+        const minesweeperWindow =
+          document.getElementById("minesweeper-window")!;
+        const minesweeperCloseBtn = document.querySelector(
+          ".minesweeper-close-btn",
+        )!;
+        const minesweeperTaskbarBtn = document.getElementById(
+          "minesweeper-taskbar-btn",
+        )!;
+        const minesweeperGrid = document.getElementById("minesweeper-grid")!;
+        const minesweeperFace = document.getElementById("minesweeper-face")!;
+        const minesweeperMinesEl =
+          document.getElementById("minesweeper-mines")!;
+        const minesweeperTimerEl =
+          document.getElementById("minesweeper-timer")!;
+        const minesweeperPlayAgainWrap = document.getElementById(
+          "minesweeper-play-again-wrap",
+        )!;
+        const minesweeperPlayAgainBtn = document.getElementById(
+          "minesweeper-play-again",
+        )!;
+
+        let grid: number[][] = [];
+        let revealed: boolean[][] = [];
+        let flagged: boolean[][] = [];
+        let gameOver = false;
+        let timerInterval: number | null = null;
+        let seconds = 0;
+        let flagsLeft = MINES;
+
+        function initGame() {
+          grid = [];
+          revealed = [];
+          flagged = [];
+          gameOver = false;
+          flagsLeft = MINES;
+          seconds = 0;
+          if (timerInterval) clearInterval(timerInterval);
+          timerInterval = null;
+          minesweeperMinesEl.textContent = String(flagsLeft).padStart(3, "0");
+          minesweeperTimerEl.textContent = "000";
+          minesweeperFace.textContent = "🙂";
+          updatePlayAgainVisibility();
+
+          const positions: [number, number][] = [];
+          for (let r = 0; r < ROWS; r++) {
+            for (let c = 0; c < COLS; c++) positions.push([r, c]);
+          }
+          for (let i = positions.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [positions[i], positions[j]] = [positions[j], positions[i]];
+          }
+          for (let r = 0; r < ROWS; r++) {
+            grid[r] = [];
+            revealed[r] = [];
+            flagged[r] = [];
+            for (let c = 0; c < COLS; c++) {
+              grid[r][c] = 0;
+              revealed[r][c] = false;
+              flagged[r][c] = false;
             }
           }
-        } else {
-          reveal(r, c);
-          if (checkWin()) {
+          for (let i = 0; i < MINES; i++) {
+            const [r, c] = positions[i];
+            grid[r][c] = -1;
+          }
+          for (let r = 0; r < ROWS; r++) {
+            for (let c = 0; c < COLS; c++) {
+              if (grid[r][c] === -1) continue;
+              let count = 0;
+              for (let dr = -1; dr <= 1; dr++) {
+                for (let dc = -1; dc <= 1; dc++) {
+                  const nr = r + dr,
+                    nc = c + dc;
+                  if (
+                    nr >= 0 &&
+                    nr < ROWS &&
+                    nc >= 0 &&
+                    nc < COLS &&
+                    grid[nr][nc] === -1
+                  )
+                    count++;
+                }
+              }
+              grid[r][c] = count;
+            }
+          }
+        }
+
+        function renderGrid() {
+          minesweeperGrid.innerHTML = "";
+          for (let r = 0; r < ROWS; r++) {
+            for (let c = 0; c < COLS; c++) {
+              const cell = document.createElement("button");
+              cell.type = "button";
+              cell.className = "minesweeper-cell";
+              cell.dataset.row = String(r);
+              cell.dataset.col = String(c);
+              if (revealed[r][c]) {
+                cell.classList.add("revealed");
+                if (grid[r][c] === -1) {
+                  cell.classList.add("mine");
+                  cell.textContent = "💣";
+                } else if (grid[r][c] > 0) {
+                  const span = document.createElement("span");
+                  span.className = `num-${grid[r][c]}`;
+                  span.textContent = String(grid[r][c]);
+                  cell.appendChild(span);
+                }
+              } else if (flagged[r][c]) {
+                cell.classList.add("flagged");
+              }
+              cell.addEventListener("click", () => handleClick(r, c));
+              cell.addEventListener("contextmenu", (e) => {
+                e.preventDefault();
+                handleRightClick(r, c);
+              });
+              minesweeperGrid.appendChild(cell);
+            }
+          }
+        }
+
+        function startTimer() {
+          if (timerInterval) return;
+          timerInterval = window.setInterval(() => {
+            seconds++;
+            minesweeperTimerEl.textContent = String(seconds).padStart(3, "0");
+          }, 1000);
+        }
+
+        function handleClick(r: number, c: number) {
+          if (gameOver || revealed[r][c] || flagged[r][c]) return;
+          startTimer();
+          if (grid[r][c] === -1) {
             gameOver = true;
-            minesweeperFace.textContent = "😎";
-            if (timerInterval) clearInterval(timerInterval);
+            minesweeperFace.textContent = "💀";
+            for (let rr = 0; rr < ROWS; rr++) {
+              for (let cc = 0; cc < COLS; cc++) {
+                if (grid[rr][cc] === -1) revealed[rr][cc] = true;
+              }
+            }
+          } else {
+            reveal(r, c);
+            if (checkWin()) {
+              gameOver = true;
+              minesweeperFace.textContent = "😎";
+              if (timerInterval) clearInterval(timerInterval);
+            }
+          }
+          renderGrid();
+          updatePlayAgainVisibility();
+        }
+
+        function reveal(r: number, c: number) {
+          if (
+            r < 0 ||
+            r >= ROWS ||
+            c < 0 ||
+            c >= COLS ||
+            revealed[r][c] ||
+            flagged[r][c]
+          )
+            return;
+          revealed[r][c] = true;
+          if (grid[r][c] === 0) {
+            for (let dr = -1; dr <= 1; dr++) {
+              for (let dc = -1; dc <= 1; dc++) reveal(r + dr, c + dc);
+            }
           }
         }
-        renderGrid();
-        updatePlayAgainVisibility();
-      }
 
-      function reveal(r: number, c: number) {
-        if (
-          r < 0 ||
-          r >= ROWS ||
-          c < 0 ||
-          c >= COLS ||
-          revealed[r][c] ||
-          flagged[r][c]
-        )
-          return;
-        revealed[r][c] = true;
-        if (grid[r][c] === 0) {
-          for (let dr = -1; dr <= 1; dr++) {
-            for (let dc = -1; dc <= 1; dc++) reveal(r + dr, c + dc);
+        function handleRightClick(r: number, c: number) {
+          if (gameOver || revealed[r][c]) return;
+          flagged[r][c] = !flagged[r][c];
+          flagsLeft += flagged[r][c] ? -1 : 1;
+          minesweeperMinesEl.textContent = String(flagsLeft).padStart(3, "0");
+          renderGrid();
+        }
+
+        function checkWin(): boolean {
+          for (let r = 0; r < ROWS; r++) {
+            for (let c = 0; c < COLS; c++) {
+              if (grid[r][c] !== -1 && !revealed[r][c]) return false;
+            }
           }
+          return true;
         }
-      }
 
-      function handleRightClick(r: number, c: number) {
-        if (gameOver || revealed[r][c]) return;
-        flagged[r][c] = !flagged[r][c];
-        flagsLeft += flagged[r][c] ? -1 : 1;
-        minesweeperMinesEl.textContent = String(flagsLeft).padStart(3, "0");
-        renderGrid();
-      }
+        function updatePlayAgainVisibility() {
+          minesweeperPlayAgainWrap.classList.toggle("visible", gameOver);
+        }
 
-      function checkWin(): boolean {
-        for (let r = 0; r < ROWS; r++) {
-          for (let c = 0; c < COLS; c++) {
-            if (grid[r][c] !== -1 && !revealed[r][c]) return false;
+        function openMinesweeper() {
+          minesweeperWindow.classList.add("open");
+          minesweeperWindow.setAttribute("aria-hidden", "false");
+          minesweeperTaskbarBtn.classList.add("visible");
+          initGame();
+          renderGrid();
+        }
+
+        function closeMinesweeper() {
+          minesweeperWindow.classList.remove("open");
+          minesweeperWindow.setAttribute("aria-hidden", "true");
+          minesweeperTaskbarBtn.classList.remove("visible");
+        }
+
+        minesweeperPlayAgainBtn.addEventListener("click", () => {
+          initGame();
+          renderGrid();
+        });
+
+        // Recycle Bin dialog
+        const recycleBinBtn = document.getElementById("recycle-bin-btn")!;
+        const recycleBinDialog = document.getElementById("recycle-bin-dialog")!;
+        const recycleBinDialogClose = document.querySelectorAll(
+          ".recycle-bin-dialog-close, .recycle-bin-dialog-ok",
+        );
+
+        function openRecycleBinDialog() {
+          recycleBinDialog.classList.add("open");
+          recycleBinDialog.setAttribute("aria-hidden", "false");
+        }
+
+        function closeRecycleBinDialog() {
+          recycleBinDialog.classList.remove("open");
+          recycleBinDialog.setAttribute("aria-hidden", "true");
+        }
+
+        recycleBinBtn.addEventListener("click", openRecycleBinDialog);
+        recycleBinDialogClose.forEach((el) =>
+          el.addEventListener("click", closeRecycleBinDialog),
+        );
+        recycleBinDialog.addEventListener("click", (e) => {
+          if (e.target === recycleBinDialog) closeRecycleBinDialog();
+        });
+
+        minesweeperIcon.addEventListener("click", openMinesweeper);
+        minesweeperCloseBtn.addEventListener("click", closeMinesweeper);
+        minesweeperTaskbarBtn.addEventListener("click", () => {
+          if (minesweeperWindow.classList.contains("open")) {
+            minesweeperWindow.style.zIndex = String(101);
+            setTimeout(() => {
+              minesweeperWindow.style.zIndex = "100";
+            }, 10);
           }
-        }
-        return true;
-      }
-
-      function updatePlayAgainVisibility() {
-        minesweeperPlayAgainWrap.classList.toggle("visible", gameOver);
-      }
-
-      function openMinesweeper() {
-        minesweeperWindow.classList.add("open");
-        minesweeperWindow.setAttribute("aria-hidden", "false");
-        minesweeperTaskbarBtn.classList.add("visible");
-        initGame();
-        renderGrid();
-      }
-
-      function closeMinesweeper() {
-        minesweeperWindow.classList.remove("open");
-        minesweeperWindow.setAttribute("aria-hidden", "true");
-        minesweeperTaskbarBtn.classList.remove("visible");
-      }
-
-      minesweeperPlayAgainBtn.addEventListener("click", () => {
-        initGame();
-        renderGrid();
-      });
-
-      // Recycle Bin dialog
-      const recycleBinBtn = document.getElementById("recycle-bin-btn")!;
-      const recycleBinDialog = document.getElementById("recycle-bin-dialog")!;
-      const recycleBinDialogClose = document.querySelectorAll(
-        ".recycle-bin-dialog-close, .recycle-bin-dialog-ok",
-      );
-
-      function openRecycleBinDialog() {
-        recycleBinDialog.classList.add("open");
-        recycleBinDialog.setAttribute("aria-hidden", "false");
-      }
-
-      function closeRecycleBinDialog() {
-        recycleBinDialog.classList.remove("open");
-        recycleBinDialog.setAttribute("aria-hidden", "true");
-      }
-
-      recycleBinBtn.addEventListener("click", openRecycleBinDialog);
-      recycleBinDialogClose.forEach((el) =>
-        el.addEventListener("click", closeRecycleBinDialog),
-      );
-      recycleBinDialog.addEventListener("click", (e) => {
-        if (e.target === recycleBinDialog) closeRecycleBinDialog();
-      });
-
-      minesweeperIcon.addEventListener("click", openMinesweeper);
-      minesweeperCloseBtn.addEventListener("click", closeMinesweeper);
-      minesweeperTaskbarBtn.addEventListener("click", () => {
-        if (minesweeperWindow.classList.contains("open")) {
-          minesweeperWindow.style.zIndex = String(101);
-          setTimeout(() => {
-            minesweeperWindow.style.zIndex = "100";
-          }, 10);
-        }
-      });
-    </script>
+        });
+      </script>
+    </div>
   </body>
 </html>

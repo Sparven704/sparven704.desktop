@@ -24,7 +24,11 @@ body.logoff-invert {
 body.win98-desktop {
   background: var(--win98-desktop);
 }
-
+.ascii-art {
+  font-family: monospace;
+  white-space: pre;
+  line-height: 1.1;
+}
 /* 3D sunken effect */
 .win95-inset,
 .win98-inset {
@@ -42,6 +46,57 @@ body.win98-desktop {
     var(--win98-border-dark) var(--win98-border-light);
   background: var(--win98-button-face);
 }
+
+.win98-group {
+  background: #c0c0c0;
+  padding: 12px;
+
+  /* OUTER bevel */
+  border-top: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #808080;
+  border-bottom: 1px solid #808080;
+
+  /* INNER bevel (true Win98 style) */
+  box-shadow: inset -1px -1px 0 #000000; /* subtle deep shadow */
+}
+
+.win98-group legend {
+  padding: 0 6px;
+  background: #c0c0c0;
+
+  font-family: "MS Sans Serif", sans-serif;
+  font-size: 12px;
+  color: #000000;
+}
+.win98-legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 0 6px;
+  background: #c0c0c0;
+
+  font-family: "MS Sans Serif", sans-serif;
+  font-size: 12px;
+}
+
+.win98-legend-icon {
+  display: block; /* prevents baseline alignment issues */
+}
+/*.win98-layer-outer {
+  padding: 0px; /* spacing between layers
+
+
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+}*/ /*/
+.win98-group-inner {
+  padding: 0px;
+  background: #c0c0c0;
+}*/
 
 /* Title bar separator */
 .win95-separator,

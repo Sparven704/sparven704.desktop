@@ -1,13 +1,13 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 
-import tailwindcss from '@tailwindcss/vite';
+import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  // Required for GitHub Pages project sites (username.github.io/repo-name)
-  base: '/sparven704.desktop/',
+  site: "https://sparven704.github.io",
+  base: "/sparven704.desktop/",
   vite: {
-    plugins: [tailwindcss()]
-  }
+    plugins: [tailwindcss()],
+  },
 });
