@@ -10,6 +10,7 @@ const base = import.meta.env.BASE_URL;
 
 <html lang="en">
   <head>
+    <base href={base} />
     <meta charset="utf-8" />
     <link
       rel="icon"
@@ -363,6 +364,25 @@ const base = import.meta.env.BASE_URL;
         closeStartMenu();
         document.body.classList.add("logoff-invert");
         setTimeout(() => document.body.classList.remove("logoff-invert"), 3000);
+      });
+
+      const audio = new Audio(
+        import.meta.env.BASE_URL + "minecraft-click-menu.mp3",
+      );
+      audio.preload = "auto";
+
+      function playClickSound() {
+        audio.currentTime = 0;
+        audio.play();
+      }
+
+      document.addEventListener("click", (event) => {
+        if (!(event.target instanceof Element)) return;
+
+        const clickable = event.target.closest("button, a");
+        if (!clickable) return;
+
+        playClickSound();
       });
     </script>
   </body>

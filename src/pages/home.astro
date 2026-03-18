@@ -608,6 +608,7 @@ const lastUpdated = new Date().toISOString().split("T")[0];
         const startMenu = document.getElementById("start-menu")!;
 
         function toggleStartMenu() {
+          playClickSound();
           const isOpen = startMenu.classList.toggle("open");
           startBtn.classList.toggle("pressed", isOpen);
           startBtn.setAttribute("aria-expanded", String(isOpen));
@@ -628,11 +629,11 @@ const lastUpdated = new Date().toISOString().split("T")[0];
         startMenu.addEventListener("click", (e) => e.stopPropagation());
 
         document.getElementById("logoff-btn")!.addEventListener("click", () => {
-          closeStartMenu();
+          playLogoffSound();
           document.body.classList.add("logoff-invert");
           setTimeout(
             () => document.body.classList.remove("logoff-invert"),
-            3000,
+            4000,
           );
         });
 
@@ -811,6 +812,7 @@ const lastUpdated = new Date().toISOString().split("T")[0];
         }
 
         function handleClick(r: number, c: number) {
+          playClickSound();
           if (gameOver || revealed[r][c] || flagged[r][c]) return;
           startTimer();
           if (grid[r][c] === -1) {
@@ -852,6 +854,7 @@ const lastUpdated = new Date().toISOString().split("T")[0];
         }
 
         function handleRightClick(r: number, c: number) {
+          playClickSound();
           if (gameOver || revealed[r][c]) return;
           flagged[r][c] = !flagged[r][c];
           flagsLeft += flagged[r][c] ? -1 : 1;
@@ -904,6 +907,7 @@ const lastUpdated = new Date().toISOString().split("T")[0];
         }
 
         function closeRecycleBinDialog() {
+          playRecycleSound();
           recycleBinDialog.classList.remove("open");
           recycleBinDialog.setAttribute("aria-hidden", "true");
         }
@@ -926,6 +930,61 @@ const lastUpdated = new Date().toISOString().split("T")[0];
             }, 10);
           }
         });
+
+        const clickAudio = new Audio(
+          import.meta.env.BASE_URL + "minecraft-click-menu.mp3",
+        );
+        clickAudio.preload = "auto";
+
+        const recycleAudio = new Audio(
+          import.meta.env.BASE_URL + "recycle.mp3",
+        );
+        recycleAudio.preload = "auto";
+
+        const infoAudio = new Audio(
+          import.meta.env.BASE_URL + "information-bar.mp3",
+        );
+        infoAudio.preload = "auto";
+
+        const logoffAudio = new Audio(
+          import.meta.env.BASE_URL + "shutdown.mp3",
+        );
+        logoffAudio.preload = "auto";
+
+        function playLogoffSound() {
+          logoffAudio.currentTime = 0;
+          logoffAudio.play();
+        }
+        function playInfoSound() {
+          infoAudio.currentTime = 0;
+          infoAudio.play();
+        }
+
+        function playRecycleSound() {
+          recycleAudio.currentTime = 0;
+          recycleAudio.play();
+        }
+
+        async function playClickSound() {
+          try {
+            clickAudio.preload = "auto";
+            clickAudio.currentTime = 0;
+            await clickAudio.play();
+          } catch (err) {}
+        }
+
+        document.addEventListener(
+          "click",
+          (event) => {
+            if (!(event.target instanceof Element)) return;
+
+            const clickable = event.target.closest("button, a");
+            if (!clickable) return;
+
+            playClickSound();
+          },
+          true, // 👈 capture phase
+        );
       </script>
     </div>
   </body>
